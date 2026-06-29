@@ -32,6 +32,8 @@
   @keyframes blink{ 0%,80%,100%{ opacity:.25;} 40%{ opacity:1;} }
   @keyframes spin{ to{ transform:rotate(360deg);} }
   @keyframes coachWave{ 0%,100%{ transform:rotate(-8deg);} 50%{ transform:rotate(10deg);} }
+  /* Barra de estado simulada del mockup: visible solo en el marco de escritorio; oculta en movil real (fullscreen) */
+  #deviceWrap.fs div[style*="height:48px"], #deviceWrap.fs div[style*="height: 48px"]{ display:none !important; }
 </style>
 </helmet>
 
@@ -931,7 +933,7 @@ class Component extends DCLogic {
     cardActiva:false, cardClaveSet:false,
   };
 
-  componentDidMount(){ this._fit=()=>{ const w=document.getElementById('deviceWrap'); if(!w) return; const sc=document.getElementById('screen'); const mobile=window.innerWidth<=560; if(mobile){ w.style.width='100vw'; w.style.height='100vh'; w.style.padding='0'; w.style.borderRadius='0'; w.style.boxShadow='none'; w.style.transform='none'; if(sc){ sc.style.inset='0'; sc.style.borderRadius='0'; } } else { w.style.width='390px'; w.style.height='844px'; w.style.padding='5px'; w.style.borderRadius='54px'; w.style.boxShadow='0 30px 70px rgba(0,0,0,.45), inset 0 0 0 2px #2a2b2e'; if(sc){ sc.style.inset='5px'; sc.style.borderRadius='49px'; } const s=Math.min((window.innerHeight-24)/844,(window.innerWidth-20)/390,1.1); w.style.transform='scale('+s+')'; } }; this._fit(); window.addEventListener('resize',this._fit); }
+  componentDidMount(){ this._fit=()=>{ const w=document.getElementById('deviceWrap'); if(!w) return; const sc=document.getElementById('screen'); const mobile=window.innerWidth<=560; if(mobile){ w.classList.add('fs'); w.style.width='100vw'; w.style.height='100vh'; w.style.padding='0'; w.style.borderRadius='0'; w.style.boxShadow='none'; w.style.transform='none'; if(sc){ sc.style.inset='0'; sc.style.borderRadius='0'; } } else { w.classList.remove('fs'); w.style.width='390px'; w.style.height='844px'; w.style.padding='5px'; w.style.borderRadius='54px'; w.style.boxShadow='0 30px 70px rgba(0,0,0,.45), inset 0 0 0 2px #2a2b2e'; if(sc){ sc.style.inset='5px'; sc.style.borderRadius='49px'; } const s=Math.min((window.innerHeight-24)/844,(window.innerWidth-20)/390,1.1); w.style.transform='scale('+s+')'; } }; this._fit(); window.addEventListener('resize',this._fit); }
   componentWillUnmount(){ if(this._fit) window.removeEventListener('resize',this._fit); }
 
   // ---------- helpers ----------
