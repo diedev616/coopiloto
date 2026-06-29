@@ -409,7 +409,7 @@
         <div style="display:flex; justify-content:space-between; margin-top:14px; align-items:baseline"><span style="font-size:24px; font-weight:700; color:#243757">{{ metaActualText }}</span><span style="font-size:15px; color:#7b7f86">de {{ metaObjetivoText }}</span></div>
         <div style="height:10px; background:#EDEFF2; border-radius:5px; margin-top:10px; overflow:hidden"><div style="height:100%; width:{{ metaPct }}%; background:linear-gradient(90deg,#34A853,#2E9E78); border-radius:5px"></div></div>
         <div style="font-size:13.5px; color:#7b7f86; margin-top:10px">Te faltan <b style="color:#2b2b2b">{{ metaFaltaText }}</b> para alcanzar tu meta.</div>
-        <button onClick="{{ openPiaAhorro }}" style="width:100%; margin-top:14px; background:#FFF1F2; border:1px solid #F6CBCF; border-radius:12px; padding:12px; cursor:pointer; display:flex; align-items:center; gap:11px; font-family:Ubuntu"><div style="width:32px; height:32px; border-radius:50%; background:#fff; padding:1.5px; flex:none; box-shadow:0 1px 4px rgba(0,0,0,.15)"><img src="assets/pia-avatar.png" style="width:100%; height:100%; border-radius:50%; display:block; object-fit:cover"/></div><span style="flex:1; text-align:left; font-size:13.5px; color:#3a3a3a; line-height:1.3"><b style="color:#E81E2C">PIA:</b> Con tu patrón de ahorro podrías llegar 2 meses antes. ¿Te muestro cómo?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button id="tgt-ahorro-pia" onClick="{{ openPiaAhorro }}" style="width:100%; margin-top:14px; background:#FFF1F2; border:1px solid #F6CBCF; border-radius:12px; padding:12px; cursor:pointer; display:flex; align-items:center; gap:11px; font-family:Ubuntu"><div style="width:32px; height:32px; border-radius:50%; background:#fff; padding:1.5px; flex:none; box-shadow:0 1px 4px rgba(0,0,0,.15)"><img src="assets/pia-avatar.png" style="width:100%; height:100%; border-radius:50%; display:block; object-fit:cover"/></div><span style="flex:1; text-align:left; font-size:13.5px; color:#3a3a3a; line-height:1.3"><b style="color:#E81E2C">PIA:</b> Con tu patrón de ahorro podrías llegar 2 meses antes. ¿Te muestro cómo?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
 
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); margin-top:14px; overflow:hidden">
@@ -434,8 +434,8 @@
     <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 96px">
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); overflow:hidden">
         <div style="font-size:18px; font-weight:700; color:#2b2b2b; padding:16px 18px; border-bottom:1px solid #EEF0F2">Productos</div>
-        <button onClick="{{ openPiaDeposito }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M12 13v3M10.5 14h3"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Depósitos a Plazo</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Define un plazo para invertir en pesos y conoce tu ganancia desde el inicio.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
-        <button onClick="{{ openPiaFondos }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9h16l-2 9H6z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Fondos Mutuos</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Invierte en un fondo de acuerdo a tu perfil y haz crecer tu dinero.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button id="tgt-inv-deposito" onClick="{{ openPiaDeposito }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M12 13v3M10.5 14h3"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Depósitos a Plazo</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Define un plazo para invertir en pesos y conoce tu ganancia desde el inicio.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button id="tgt-inv-fondos" onClick="{{ openPiaFondos }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9h16l-2 9H6z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Fondos Mutuos</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Invierte en un fondo de acuerdo a tu perfil y haz crecer tu dinero.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
         <button onClick="{{ toCuotaParticipacion }}" style="width:100%; background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v9h9a9 9 0 1 1-9-9z"/><path d="M14 3a7 7 0 0 1 7 7h-7z"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Cuotas de Participación</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Tu aporte como Socio te da acceso a beneficios exclusivos y a recibir un remanente anual.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
@@ -455,7 +455,7 @@
           <div><div style="font-size:34px; font-weight:700; color:#243757">{{ aporteActualText }}</div><div style="font-size:13px; color:#7b7f86">Aporte actual</div></div>
         </div>
         <div style="margin-top:16px; padding-top:14px; border-top:1px solid #EEF0F2; font-size:13.5px; color:#7b7f86; line-height:1.45">Aumentar tu cuota incrementa tu remanente anual y desbloquea más beneficios exclusivos.</div>
-        <button onClick="{{ openPiaAporte }}" style="width:100%; height:52px; border-radius:26px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:18px; display:flex; align-items:center; justify-content:center; gap:9px"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFD66B"><path d="M12 2l1.6 6.4L20 10l-6.4 1.6L12 18l-1.6-6.4L4 10l6.4-1.6z"/></svg> Aumentar mi cuota con Pia</button>
+        <button id="tgt-aporte-btn" onClick="{{ openPiaAporte }}" style="width:100%; height:52px; border-radius:26px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:18px; display:flex; align-items:center; justify-content:center; gap:9px"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFD66B"><path d="M12 2l1.6 6.4L20 10l-6.4 1.6L12 18l-1.6-6.4L4 10l6.4-1.6z"/></svg> Aumentar mi cuota con Pia</button>
       </div>
     </div>
   </div>
@@ -474,7 +474,7 @@
         <div style="text-align:center; margin-top:14px"><div style="width:40px; height:40px; border:2px dashed rgba(255,255,255,.7); border-radius:50%; margin:0 auto"></div><div style="color:{{ cardEstadoCol }}; font-size:16px; margin-top:8px; font-weight:700">{{ cardEstado }}</div></div>
         <div style="position:absolute; right:20px; bottom:18px; display:flex"><span style="width:26px; height:26px; border-radius:50%; background:#EB001B; opacity:.85"></span><span style="width:26px; height:26px; border-radius:50%; background:#F79E1B; opacity:.85; margin-left:-12px"></span></div>
       </div>
-      <button onClick="{{ crearClave }}" style="width:100%; background:#fff; border:1px solid #EBECEF; border-radius:14px; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu; margin-top:16px; box-shadow:0 4px 14px rgba(20,30,60,.06)"><span style="color:#15639E"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v9"/><path d="M7.5 6.5a7 7 0 1 0 9 0"/></svg></span><span style="flex:1; text-align:left; font-size:16px; font-weight:500; color:#2b2b2b">{{ crearClaveLabel }}</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button id="tgt-card-clave" onClick="{{ crearClave }}" style="width:100%; background:#fff; border:1px solid #EBECEF; border-radius:14px; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu; margin-top:16px; box-shadow:0 4px 14px rgba(20,30,60,.06)"><span style="color:#15639E"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v9"/><path d="M7.5 6.5a7 7 0 1 0 9 0"/></svg></span><span style="flex:1; text-align:left; font-size:16px; font-weight:500; color:#2b2b2b">{{ crearClaveLabel }}</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
   </sc-if>
@@ -507,16 +507,16 @@
       <div style="background:#fff; border-radius:16px; padding:18px; box-shadow:0 6px 18px rgba(20,30,60,.08)">
         <div style="font-size:19px; font-weight:700; color:#2b2b2b; padding-bottom:16px; border-bottom:1px solid #EEF0F2">Simula tu hipotecario</div>
         <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-top:16px; margin-bottom:8px">Valor de la propiedad (UF)</div>
-        <input value="{{ hipoValor }}" onInput="{{ onHipoValor }}" inputmode="numeric" placeholder="Ej: 3000" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:17px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <input id="tgt-hip-valor" value="{{ hipoValor }}" onInput="{{ onHipoValor }}" inputmode="numeric" placeholder="Ej: 3000" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:17px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
         <div style="font-size:13px; color:#9aa0a8; margin-top:6px">1 UF ≈ $37.500 · 3.000 UF ≈ $112 millones</div>
         <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-top:18px; margin-bottom:8px">Pie (%)</div>
-        <input value="{{ hipoPie }}" onInput="{{ onHipoPie }}" inputmode="numeric" placeholder="Ej: 20" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:17px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <input id="tgt-hip-pie" value="{{ hipoPie }}" onInput="{{ onHipoPie }}" inputmode="numeric" placeholder="Ej: 20" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:17px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
         <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Recomendado entre 10% y 20%</div>
         <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-top:18px; margin-bottom:8px">Plazo (años)</div>
-        <input value="{{ hipoPlazo }}" onInput="{{ onHipoPlazo }}" inputmode="numeric" placeholder="Ej: 25" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:17px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <input id="tgt-hip-plazo" value="{{ hipoPlazo }}" onInput="{{ onHipoPlazo }}" inputmode="numeric" placeholder="Ej: 25" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:17px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
         <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Entre 5 y 30 años</div>
       </div>
-      <button onClick="{{ doHipoSim }}" style="width:100%; height:56px; border-radius:28px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:18px; font-weight:700; margin-top:20px">Simular dividendo</button>
+      <button id="tgt-hip-simular" onClick="{{ doHipoSim }}" style="width:100%; height:56px; border-radius:28px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:18px; font-weight:700; margin-top:20px">Simular dividendo</button>
       <sc-if value="{{ hipoSim }}" hint-placeholder-val="{{ null }}">
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); overflow:hidden; margin-top:18px">
         <div style="text-align:center; padding:18px; border-bottom:1px solid #EEF0F2"><div style="font-size:16px; color:#5a5e66">Dividendo mensual aprox.</div><div style="font-size:34px; font-weight:700; color:#243757; letter-spacing:-.5px">UF {{ hs.divUF }}</div><div style="font-size:15px; color:#5a5e66; margin-top:2px">≈ {{ hs.divPesos }}/mes</div></div>
@@ -616,7 +616,7 @@
           <div style="display:flex; align-items:center; gap:13px; padding:15px 18px; border-bottom:1px solid #F4F5F7">
             <span style="width:40px; height:40px; border-radius:10px; background:#EAF4FB; color:#15639E; display:flex; align-items:center; justify-content:center; flex:none">{{ s.icon }}</span>
             <div style="flex:1"><div style="font-size:15px; font-weight:700; color:#2b2b2b">{{ s.t }}</div><div style="font-size:13px; color:#9aa0a8">Vence {{ s.due }}</div></div>
-            <div style="text-align:right"><div style="font-size:15px; font-weight:700; color:#243757">{{ s.amt }}</div><button onClick="{{ s.on }}" style="margin-top:4px; background:#E81E2C; color:#fff; border:none; border-radius:13px; padding:6px 14px; font-family:Ubuntu; font-size:12.5px; font-weight:700; cursor:pointer">Pagar</button></div>
+            <div style="text-align:right"><div style="font-size:15px; font-weight:700; color:#243757">{{ s.amt }}</div><button id="{{ s.tid }}" onClick="{{ s.on }}" style="margin-top:4px; background:#E81E2C; color:#fff; border:none; border-radius:13px; padding:6px 14px; font-family:Ubuntu; font-size:12.5px; font-weight:700; cursor:pointer">Pagar</button></div>
           </div>
         </sc-for>
       </div>
@@ -951,7 +951,7 @@ class Component extends DCLogic {
   computeCuota(P,n){ const r=0.0314; if(!n) return 0; const c=P*r/(1-Math.pow(1+r,-n)); return Math.round(c/10)*10; }
   makeSim(){ const P=parseInt(this.state.monto||'0',10)||0; const n=parseInt(this.state.cuotas||'0',10)||0; const fecha=this.state.fecha||'15/08/2026'; if(P===100000&&n===24){ return {monto:P,cuotas:n,cuota:5990,cae:'35,64%',tasa:'2,46%',seguros:1799,notar:1350,total:139410,gastos:3149,fecha}; } const cuota=this.computeCuota(P,n); const seguros=Math.max(0,Math.round(P*0.018)); const notar=1350; const total=cuota*n+notar; const gastos=Math.max(0,total-P); const cae=(((Math.pow(total/Math.max(P,1),12/Math.max(n,1))-1)*100)||0).toFixed(2).replace('.',',')+'%'; return {monto:P,cuotas:n,cuota,cae,tasa:'2,46%',seguros,notar,total,gastos,fecha}; }
   ufVal(){ return 37500; }
-  doHipoSim(){ const V=parseFloat((this.state.hipoValor||'0').replace(',','.'))||0; const pie=parseFloat(this.state.hipoPie||'0')||0; const ny=parseInt(this.state.hipoPlazo||'0',10)||0; if(V<500){ this.toast('Ingresa el valor en UF (ej: 3000)'); return; } if(pie<0||pie>90){ this.toast('El pie va de 0% a 90%'); return; } if(ny<5||ny>30){ this.toast('El plazo va de 5 a 30 años'); return; } const fin=V*(1-pie/100); const r=0.0040, n=ny*12; const divUF=fin*r/(1-Math.pow(1+r,-n)); const cae=(((Math.pow(1+r,12))-1)*100).toFixed(2).replace('.',',')+'%'; this.setState({hipoSim:{valor:V,pie,fin:Math.round(fin),plazo:ny,divUF:Math.round(divUF*100)/100,divPesos:Math.round(divUF*this.ufVal()),cae}}); }
+  doHipoSim(){ const V=parseFloat((this.state.hipoValor||'0').replace(',','.'))||0; const pie=parseFloat(this.state.hipoPie||'0')||0; const ny=parseInt(this.state.hipoPlazo||'0',10)||0; if(V<500){ this.toast('Ingresa el valor en UF (ej: 3000)'); return; } if(pie<0||pie>90){ this.toast('El pie va de 0% a 90%'); return; } if(ny<5||ny>30){ this.toast('El plazo va de 5 a 30 años'); return; } const fin=V*(1-pie/100); const r=0.0040, n=ny*12; const divUF=fin*r/(1-Math.pow(1+r,-n)); const cae=(((Math.pow(1+r,12))-1)*100).toFixed(2).replace('.',',')+'%'; this.setState({hipoSim:{valor:V,pie,fin:Math.round(fin),plazo:ny,divUF:Math.round(divUF*100)/100,divPesos:Math.round(divUF*this.ufVal()),cae}}); this.endGuided(); }
   doSimular(){ const P=parseInt(this.state.monto||'0',10)||0; const n=parseInt(this.state.cuotas||'0',10)||0; if(!(P>=100000&&P<=50000000)){ this.toast('Ingresa un monto entre $100.000 y $50.000.000'); return; } if(!(n>=5&&n<=60)){ this.toast('Las cuotas deben ir de 5 a 60'); return; } if(!this.state.fecha){ this.toast('Selecciona la fecha del primer pago'); return; } this.setState({sim:this.makeSim(), segurosOpen:false, masOpen:false}); this.go('credito-result'); if(this.state.guide&&this.state.guide.flow==='sim') this.setGuide('result'); const g=this.state.gf; if(g&&g.flow==='credit'&&this.gfSteps('credit')[g.i]&&this.gfSteps('credit')[g.i].key==='simular') this.gfAdvance(); }
   continuarCredito(){ this.go('credito-info'); if(this.state.guide&&this.state.guide.flow==='sim') this.setGuide('datos'); const g=this.state.gf; if(g&&g.flow==='credit'&&this.gfSteps('credit')[g.i]&&this.gfSteps('credit')[g.i].key==='continuar') this.gfAdvance(); }
   confirmarContacto(){ this.setState({guide:null}); this.endGuided(); this.go('credito-comprobante'); this.toast('¡Solicitud enviada con éxito!'); setTimeout(()=>{ if(this.state.screen==='credito-comprobante') this.setState({peek:{text:'¡Listo! Tu solicitud quedó enviada. ¿Te ayudo con algo más? 💚', cta:'Hablar con PIA', on:()=>this.openPia()}}); }, 1100); }
@@ -1013,7 +1013,58 @@ class Component extends DCLogic {
       {key:'continuar', screen:'credito-result',               target:'tgt-cr-continuar', manual:false, tip:'Esta es tu cuota y su CAE. Si te acomoda, toca Continuar.', side:'top'},
       {key:'confirmar', screen:'credito-info',                 target:'tgt-cr-confirmar', manual:false, tip:'Revisa tus datos y toca "Confirmar y continuar". El envío es tu decisión. ✅', side:'top'},
     ];
+    if(flow==='hipotecario') return [
+      {key:'valor', screen:'hipotecario', target:'tgt-hip-valor', manual:true, cb:true, tip:'Escribe el valor de la propiedad en UF (ej: 3000) y toca Siguiente.', tipT:'Paso 1 de 4 \u00b7 Escribe el valor en UF (ej: 3000) y toca Siguiente.', side:'bottom'},
+      {key:'pie', screen:'hipotecario', target:'tgt-hip-pie', manual:true, cb:true, tip:'Indica el pie en % (ej: 20) y toca Siguiente.', tipT:'Paso 2 de 4 \u00b7 Indica el pie en % (ej: 20).', side:'bottom'},
+      {key:'plazo', screen:'hipotecario', target:'tgt-hip-plazo', manual:true, cb:true, tip:'Indica el plazo en a\u00f1os (ej: 25) y toca Siguiente.', tipT:'Paso 3 de 4 \u00b7 Indica el plazo en a\u00f1os (ej: 25).', side:'bottom'},
+      {key:'simular', screen:'hipotecario', target:'tgt-hip-simular', manual:false, tip:'Toca \"Simular dividendo\" para ver tu cuota mensual.', tipT:'Paso 4 de 4 \u00b7 Toca \"Simular dividendo\" para ver tu dividendo.', side:'top'},
+    ];
+    if(flow==='pagar') return [
+      {key:'pay', screen:'pagar', target:'tgt-pay-first', manual:false, tip:'Toca \"Pagar\" en la cuenta que quieras. La confirmaci\u00f3n es tuya. \u2705', tipT:'Te dej\u00e9 tus cuentas del mes. Toca \"Pagar\" en la que quieras; t\u00fa confirmas. \u2705', side:'top'},
+    ];
+    if(flow==='tarjetas') return [
+      {key:'clave', screen:'tarjetas', target:'tgt-card-clave', manual:false, tip:'Toca \"Crear clave y activar\" para dejar tu tarjeta lista. \ud83d\udcb3', tipT:'Toca \"Crear clave y activar\". T\u00fa confirmas. \ud83d\udcb3', side:'top'},
+    ];
+    if(flow==='ahorro') return [
+      {key:'meta', screen:'cuenta-ahorro', target:'tgt-ahorro-pia', manual:false, tip:'Aqu\u00ed ves tu meta. Toca el bot\u00f3n de PIA y te muestro c\u00f3mo llegar antes. \ud83d\ude80', tipT:'Esta es tu meta de ahorro. Toca el bot\u00f3n de PIA para ver c\u00f3mo llegar antes. \ud83d\ude80', side:'top'},
+    ];
+    if(flow==='inversion') return [
+      {key:'deposito', screen:'inversiones', target:'tgt-inv-deposito', manual:true, cb:true, tip:'El Dep\u00f3sito a Plazo es la opci\u00f3n m\u00e1s segura. Toca Siguiente.', tipT:'El Dep\u00f3sito a Plazo es lo m\u00e1s seguro: sabes tu ganancia desde el inicio.', side:'bottom'},
+      {key:'fondos', screen:'inversiones', target:'tgt-inv-fondos', manual:false, tip:'Los Fondos Mutuos buscan m\u00e1s rentabilidad. Toca el producto que prefieras. \ud83d\udc9a', tipT:'Los Fondos Mutuos buscan m\u00e1s rentabilidad con algo de riesgo. Toca el que prefieras. \ud83d\udc9a', side:'bottom'},
+    ];
+    if(flow==='aporte') return [
+      {key:'aumentar', screen:'cuota-participacion', target:'tgt-aporte-btn', manual:false, tip:'Toca \"Aumentar mi cuota con Pia\". Te recomiendo y T\u00da confirmas. \ud83e\udd1d', tipT:'Toca \"Aumentar mi cuota con Pia\". Yo te recomiendo y t\u00fa confirmas. \ud83e\udd1d', side:'top'},
+    ];
     return [];
+  }
+  gfConf(flow){ const c={
+    hipotecario:{screen:'hipotecario', tab:null, autoMsg:'Listo: cargu\u00e9 valor 3.000 UF, pie 20% y plazo 25 a\u00f1os. Revisa y toca \"Simular dividendo\". \ud83d\udc4d', fill:{hipoValor:'3000',hipoPie:'20',hipoPlazo:'25',hipoSim:null}, reset:{hipoSim:null}},
+    pagar:{screen:'pagar', tab:null, autoMsg:'Te dej\u00e9 tus cuentas del mes a la vista. Revisa y toca \"Pagar\" en la que quieras. T\u00fa confirmas. \ud83d\udc4d', fill:{}, reset:{}},
+    tarjetas:{screen:'tarjetas', tab:'tarjetas', autoMsg:'Te llev\u00e9 a tus Tarjetas. Toca \"Crear clave y activar\" para dejarla lista. \ud83d\udcb3', fill:{}, reset:{}},
+    ahorro:{screen:'cuenta-ahorro', tab:null, autoMsg:'Aqu\u00ed est\u00e1 tu meta de ahorro. Toca el bot\u00f3n de PIA y te muestro c\u00f3mo llegar antes. \ud83d\ude80', fill:{}, reset:{}},
+    inversion:{screen:'inversiones', tab:'inversiones', autoMsg:'Estos son tus productos de inversi\u00f3n. Te recomiendo partir por el Dep\u00f3sito a Plazo: t\u00f3calo para ver el detalle. \ud83d\udc9a', fill:{}, reset:{}},
+    aporte:{screen:'cuota-participacion', tab:null, autoMsg:'Te llev\u00e9 a tu cuota de participaci\u00f3n. Toca \"Aumentar mi cuota con Pia\" y confirmas t\u00fa. \ud83e\udd1d', fill:{}, reset:{}},
+  }; return c[flow]||{screen:'home',tab:'inicio',autoMsg:'Lo dej\u00e9 listo. T\u00fa confirmas. \ud83d\udc4d',fill:{},reset:{}}; }
+  async flowModes(flow){
+    const intros={hipotecario:'Te acompa\u00f1o a simular tu Cr\u00e9dito Hipotecario. \u00bfC\u00f3mo prefieres?',pagar:'Te acompa\u00f1o a pagar tus cuentas del mes. \u00bfC\u00f3mo prefieres?',tarjetas:'Te acompa\u00f1o a activar tu tarjeta. \u00bfC\u00f3mo prefieres?',ahorro:'Te acompa\u00f1o con tu meta de ahorro. \u00bfC\u00f3mo prefieres?',inversion:'Te acompa\u00f1o a invertir. \u00bfC\u00f3mo prefieres?',aporte:'Te acompa\u00f1o a aumentar tu cuota de participaci\u00f3n. \u00bfC\u00f3mo prefieres?'};
+    await this.say(intros[flow]||'\u00a1Te acompa\u00f1o! \u00bfC\u00f3mo prefieres?',{time:true});
+    await this.pushChipsRaw([
+      {label:'Gu\u00edame paso a paso (texto)', icon:this.ic('list'), on:()=>this.startFlow(flow,'text')},
+      {label:'Hazme un tour por la app', icon:this.ic('spark'), on:()=>this.startFlow(flow,'tour')},
+      {label:'Prep\u00e1ralo por m\u00ed (yo confirmo)', icon:this.ic('bolt'), on:()=>this.startFlow(flow,'auto')},
+    ]);
+  }
+  async startFlow(flow, mode){
+    const labels={text:'Gu\u00edame paso a paso',tour:'Hazme un tour por la app',auto:'Prep\u00e1ralo por m\u00ed (yo confirmo)'};
+    await this.userMsg(labels[mode]||'Acomp\u00e1\u00f1ame');
+    if(mode==='text') await this.say('\u00a1Perfecto! Te voy indicando cada paso con un cartelito. \ud83d\udc47',{time:true});
+    if(mode==='tour') await this.say('\u00a1Vamos! Oscurezco el resto y dejo iluminado solo lo que debes tocar. \u2728',{time:true});
+    const cf=this.gfConf(flow); const steps=this.gfSteps(flow);
+    if(mode==='auto') await this.say(cf.autoMsg,{time:true});
+    this.setState(mode==='auto' ? Object.assign({},cf.fill) : Object.assign({},cf.reset));
+    const idx = (mode==='auto') ? (steps.length-1) : 0;
+    this.setState({gf:{flow,mode,i:idx}, spot:null, guide:null});
+    setTimeout(()=>{ this.closePia(); this.go(cf.screen, cf.tab); setTimeout(()=>this.measureSpot(),470); }, 760);
   }
   async startGuided(flow, mode){
     const labels={text:'Guíame paso a paso',tour:'Hazme un tour por la app',auto:'Prepáralo por mí (yo confirmo)'};
@@ -1038,10 +1089,10 @@ class Component extends DCLogic {
   async flow_aporte(){ await this.say('¡Perfecto! Puedo ayudarte a aumentar tu cuota de participación. Revisé tu información y esta es mi recomendación para ti:',{time:true}); await this.pushMsg({cardAporte:true}); }
   async execAporte(){ await this.userMsg('Sí, confirmo el aumento'); await this.say('¡Listo! 👍 Registré la confirmación que hiciste. Aquí queda tu comprobante:'); await this.type(900); this.setState({cuotaPart:100, aporteDone:true}); await this.pushMsg({cardSuccess:true}); await this.say('¿Te acompaño en algo más? 😊',{time:true}); await this.mainChips(); }
   async cancelAporte(){ await this.userMsg('No, revisar más opciones'); await this.say('Sin problema. ¿Qué más te gustaría hacer?'); await this.mainChips(); }
-  async flow_ahorro(){ await this.say('Este mes has ahorrado $120.450 👏 Aquí te muestro el detalle:',{time:true}); await this.pushMsg({cardAhorro:true}); await this.say('Si mantienes este ritmo, alcanzarás tu meta de $500.000 unos 2 meses antes. 🚀',{time:true}); }
+  async flow_ahorro(){ await this.say('Este mes has ahorrado $120.450 👏 Aquí te muestro el detalle:',{time:true}); await this.pushMsg({cardAhorro:true}); await this.say('Si mantienes este ritmo, alcanzarás tu meta de $500.000 unos 2 meses antes. 🚀',{time:true}); await this.pushChipsRaw([{label:'Acompáñame a mi meta (3 modos)', icon:this.ic('piggy'), on:()=>this.flowModes('ahorro')}]); }
   async flow_tasas(){ await this.say('Te lo explico simple 🙂'); await this.say('• Tasa de interés (2,46% mensual): es lo que cuesta el dinero que pides.\n• CAE (Carga Anual Equivalente): reúne TODO el costo —interés + seguros + gastos— en un % anual. Sirve para comparar entre instituciones.\n• Plazo (cuotas): a más cuotas, la cuota baja, pero el costo total sube.'); await this.say('Prueba cómo cambia tu cuota 👇',{time:true}); await this.pushMsg({cardMinisim:true}); }
   async flow_despacho(){ await this.say('El despacho de tu nueva tarjeta de débito tarda entre 5 y 7 días hábiles a tu dirección registrada. Te avisaremos cuando esté en camino. 🚚',{time:true}); await this.mainChips(); }
-  async flow_pago(){ await this.say('¿Tienes problemas para pagar una cuenta o cuota? Puedo llevarte a "Pagar cuentas" o reagendar el cargo.',{time:true}); await this.pushChipsRaw([ {label:'Ir a Pagar cuentas', icon:this.ic('card'), on:()=>{ this.userMsg('Ir a Pagar cuentas'); this.closePia(); this.go('pagar'); }} ]); }
+  async flow_pago(){ return this.flowModes('pagar'); }
   async flow_cupon(){ await this.say('¡Sí! Tienes un cupón de bienvenida exclusivo en Farmacias Cruz Verde 🎁. Lo dejé activado en tu sección de Beneficios.',{time:true}); await this.mainChips(); }
   async flow_seguridad(){ await this.say('Tu información está protegida con cifrado y acceso por Face ID 🔒. Recuerda: nunca te pediremos tu clave por teléfono, email o WhatsApp.',{time:true}); await this.mainChips(); }
   // ---------- educación financiera ----------
@@ -1080,7 +1131,7 @@ class Component extends DCLogic {
     await this.say('Aumentar tu cuota = más remanente y beneficios. ¿Te muestro cómo? 😊',{time:true});
     await this.pushChipsRaw([ {label:'Aumentar mi cuota', icon:this.ic('pie'), on:()=>this.chip('aporte')}, {label:'Otra duda', icon:this.ic('book'), on:()=>this.chip('educacion')} ]);
   }
-  async flow_simular_hipotecario(){ await this.say('Te llevo al simulador hipotecario. Ajusta valor, pie y plazo y te muestro tu dividendo. 🏡',{time:true}); setTimeout(()=>{ this.closePia(); this.go('hipotecario'); }, 900); }
+  async flow_simular_hipotecario(){ return this.flowModes('hipotecario'); }
   async flow_deposito(){
     await this.say('El Depósito a Plazo es invertir seguro: dejas un monto fijo un tiempo (30, 60, 90 días o más) y sabes desde el inicio cuánto ganarás. 🔒',{time:true});
     await this.say('Ejemplo: $1.000.000 a 90 días (~0,45% mensual) → recibes aprox. $1.013.500 al final. Bajo riesgo, ideal para metas a corto plazo.');
@@ -1139,7 +1190,7 @@ class Component extends DCLogic {
     // tarjeta perdida / bloqueo / fraude
     if(has('bloquear','bloqueo','perdi','perdida','robaron','me robaron','robo','extravi','clonaron','cargo que no')){ await this.say('Si perdiste tu tarjeta, te la robaron o ves un cargo que no reconoces, lo primero es bloquearla para proteger tu dinero. 🔒',{time:true}); await this.say('Puedes hacerlo en la sección Tarjetas, o llamando al 600 200 1200 (24/7). ¿Te llevo a Tarjetas?'); return this.pushChipsRaw([{label:'Ir a Tarjetas',icon:this.ic('card'),on:()=>{ this.userMsg('Ir a Tarjetas'); this.closePia(); this.go('tarjetas'); }}]); }
     // activar tarjeta / clave tarjeta
-    if(has('activar tarjeta','activar mi tarjeta','activa la tarjeta','clave de la tarjeta','clave tarjeta','clave de mi tarjeta','pin de la tarjeta','llego mi tarjeta')){ await this.say('Puedes activar tu tarjeta y crear su clave en la sección Tarjetas. Te dejo ahí. 💳',{time:true}); return this.pushChipsRaw([{label:'Ir a Tarjetas',icon:this.ic('card'),on:()=>{ this.userMsg('Ir a Tarjetas'); this.closePia(); this.go('tarjetas'); }}]); }
+    if(has('activar tarjeta','activar mi tarjeta','activa la tarjeta','clave de la tarjeta','clave tarjeta','clave de mi tarjeta','pin de la tarjeta','llego mi tarjeta')){ await this.say('Puedes activar tu tarjeta y crear su clave en la sección Tarjetas. Te dejo ahí. 💳',{time:true}); return this.pushChipsRaw([{label:'Activar con guía de PIA',icon:this.ic('card'),on:()=>this.flowModes('tarjetas')}]); }
     // clave de internet / contrasena
     if(has('clave','contrasena','password','recuperar clave','no puedo entrar','olvide')){ await this.say('Tu clave de internet es personal y secreta. 🔐 Si la olvidaste, recupérala desde la pantalla de inicio con "¿Olvidaste tu clave?".',{time:true}); await this.say('Importante: en Coopeuch NUNCA te pediremos tu clave por teléfono, email o WhatsApp.'); return this.mainChips(); }
     // sucursales / horarios
@@ -1156,14 +1207,14 @@ class Component extends DCLogic {
     if(/(transfer|enviar dinero|enviar plata|mandar plata|girar a|pasar plata)/.test(s)) return this.chip('transferir');
     if(/(analiz|estadistic|resumen|en que gast|cuanto gast|cuanto gaste)/.test(s)) return this.chip('movanalisis');
     if(/(movimiento|cartola|ultimos gastos|mis gastos)/.test(s)) return this.chip('movimientos');
-    if(/(hipotec|vivienda|propiedad|comprar.{0,8}(casa|depto|departamento)|casa propia|mi casa propia|dividendo)/.test(s)) return this.chip('edu_hipotecario');
+    if(/(hipotec|vivienda|propiedad|comprar.{0,8}(casa|depto|departamento)|casa propia|mi casa propia|dividendo)/.test(s)) return this.chip('g_hipotecario');
     if(/(deposito a plazo|deposito)/.test(s)) return this.chip('deposito');
     if(/(fondo mutuo|fondos mutuos|fondos)/.test(s)) return this.chip('fondos');
-    if(/(invertir|inversion|donde invierto|hacer crecer)/.test(s)) return this.chip('edu_ahorroinv');
+    if(/(invertir|inversion|donde invierto|hacer crecer)/.test(s)) return this.chip('g_inversion');
     if(/(simul|credito|prestamo|consumo)/.test(s)) return this.chip('simular');
     if(/(tasa|cae|interes)/.test(s)) return this.chip('tasas');
     if(/(ahorr|meta|guardar plata)/.test(s)) return this.chip('ahorro');
-    if(/(cuota de partic|participacion|aporte|aportar)/.test(s)) return this.chip('aporte');
+    if(/(cuota de partic|participacion|aporte|aportar)/.test(s)) return this.chip('g_aporte');
     if(/(despacho|cuando llega|envio)/.test(s)) return this.chip('despacho');
     if(/(pagar|pago|cuenta de luz|servicios basicos)/.test(s)) return this.chip('pago');
     if(/(cupon|descuento|beneficio)/.test(s)) return this.chip('cupon');
@@ -1178,6 +1229,7 @@ class Component extends DCLogic {
   // chip handler — full flows added in next stage; basic answers here
   async chip(id){
     const labels={simular:'Quiero simular un crédito',movimientos:'Consultar mis movimientos',movanalisis:'Analiza mis movimientos del mes',transferir:'Transferir dinero',tasas:'¿Cómo funcionan las tasas y el CAE?',ahorro:'¿Cuánto he ahorrado este mes?',aporte:'Quiero aumentar mi cuota de participación',dudas:'Tengo otras dudas',despacho:'¿Dudas sobre el despacho?',pago:'¿Problemas con el pago?',cupon:'¿Tengo un cupón de descuento?',seguridad:'Seguridad y garantías',educacion:'Quiero aprender sobre mis productos',edu_credito:'¿Cómo funciona un crédito?',edu_hipotecario:'¿Qué es un crédito hipotecario?',edu_ahorroinv:'¿Ahorrar o invertir?',edu_cuota:'¿Qué es la cuota de participación?',simular_hipotecario:'Simular un crédito hipotecario',deposito:'¿Qué es un Depósito a Plazo?',fondos:'¿Qué son los Fondos Mutuos?'};
+    if(id.indexOf('g_')===0) return this.flowModes(id.slice(2));
     if(labels[id]) await this.userMsg(labels[id]);
     if(this['flow_'+id]) return this['flow_'+id]();
     await this.say('Pronto te ayudo con esto. ✨');
@@ -1321,7 +1373,7 @@ class Component extends DCLogic {
       toAhorrando:()=>this.openPia('ahorro'),
       toCuotaParticipacion:()=>this.go('cuota-participacion'),
       cuotaPart:st.cuotaPart,
-      crearClave:()=>{ if(st.cardActiva){ this.toast('Tu tarjeta ya está activa ✓'); return; } this.setState({cardActiva:true, cardClaveSet:true}); this.toast('¡Clave creada! Tu tarjeta quedó activa. 💳'); },
+      crearClave:()=>{ if(st.cardActiva){ this.toast('Tu tarjeta ya está activa ✓'); return; } this.setState({cardActiva:true, cardClaveSet:true}); this.toast('¡Clave creada! Tu tarjeta quedó activa. 💳'); this.endGuided(); },
       cardEstado: st.cardActiva?'Activa':'Inactiva', cardEstadoCol: st.cardActiva?'#7CFFB0':'#fff', crearClaveLabel: st.cardActiva?'Tarjeta activada ✓':'Crear clave y activar',
       autorizar:()=>{ this.toast('¡Autorización registrada! Revisaremos tus cotizaciones.'); this.go('creditos','creditos'); },
       ahorroSaldo:this.peso(st.metaActual),
@@ -1329,9 +1381,9 @@ class Component extends DCLogic {
       metaActualText:this.peso(st.metaActual), metaObjetivoText:this.peso(st.metaObjetivo), metaFaltaText:this.peso(Math.max(0,st.metaObjetivo-st.metaActual)),
       ahorroMovs:[{t:'Aporte voluntario',d:'25 Jun 2026',a:'+$22.000'},{t:'Redondeo automático',d:'24 Jun 2026',a:'+$3.450'},{t:'Ahorro programado',d:'15 Jun 2026',a:'+$40.000'},{t:'Reajuste mensual',d:'30 May 2026',a:'+$1.890'}],
       aporteActualText:this.peso(Math.round(st.cuotaPart*368.53)),
-      openPiaAhorro:()=>this.openPia('ahorro'),
-      openPiaAporte:()=>this.openPia('aporte'),
-      openPiaDeposito:()=>this.openPia('deposito'), openPiaFondos:()=>this.openPia('fondos'),
+      openPiaAhorro:()=>{ this.endGuided(); this.openPia('ahorro'); },
+      openPiaAporte:()=>{ this.endGuided(); this.openPia('aporte'); },
+      openPiaDeposito:()=>{ this.endGuided(); this.openPia('deposito'); }, openPiaFondos:()=>{ this.endGuided(); this.openPia('fondos'); },
       movF: ['todos','abonos','cargos'].reduce((o,k)=>{ o[k]= st.movFilter===k ? {bg:'#1B7FB8',fg:'#fff'} : {bg:'#DCEFF8',fg:'#1483C2'}; return o; }, {}),
       movTodos:()=>this.setState({movFilter:'todos'}), movAbonos:()=>this.setState({movFilter:'abonos'}), movCargos:()=>this.setState({movFilter:'cargos'}),
       movStatIng:this.peso(mst.ing), movStatGas:this.peso(mst.gas), movStatBal:(mst.bal>=0?'+':'-')+this.peso(Math.abs(mst.bal)), movStatBig:mst.bigT, movStatBigA:this.peso(mst.bigA), openPiaMovAnalisis:()=>this.openPia('movanalisis'),
@@ -1345,9 +1397,9 @@ class Component extends DCLogic {
       hlTransfer: st.hlTransfer?ring:'none',
       doTransfer:()=>this.doTransfer(),
       servicios:[
-        {t:'Luz · CGE', due:'05 Jul', amt:'$31.200', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.3 1 2.5h6c0-1.2.2-1.7 1-2.5A6 6 0 0 0 12 3z'})), on:()=>this.toast('Pago de Luz · CGE realizado ✓')},
-        {t:'Agua · Aguas Andinas', due:'08 Jul', amt:'$18.400', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M12 3c3 4 6 7 6 10.5A6 6 0 0 1 6 13.5C6 10 9 7 12 3z'})), on:()=>this.toast('Pago de Agua realizado ✓')},
-        {t:'Internet · VTR', due:'12 Jul', amt:'$26.990', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},[React.createElement('path',{key:0,d:'M5 12.5a10 10 0 0 1 14 0'}),React.createElement('path',{key:1,d:'M8.5 15.5a5 5 0 0 1 7 0'}),React.createElement('circle',{key:2,cx:12,cy:19,r:1,fill:'currentColor',stroke:'none'})]), on:()=>this.toast('Pago de Internet · VTR realizado ✓')},
+        {t:'Luz · CGE', due:'05 Jul', amt:'$31.200', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.3 1 2.5h6c0-1.2.2-1.7 1-2.5A6 6 0 0 0 12 3z'})), tid:'tgt-pay-first', on:()=>{ this.endGuided(); this.toast('Pago de Luz · CGE realizado ✓'); }},
+        {t:'Agua · Aguas Andinas', due:'08 Jul', amt:'$18.400', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M12 3c3 4 6 7 6 10.5A6 6 0 0 1 6 13.5C6 10 9 7 12 3z'})), tid:'', on:()=>{ this.endGuided(); this.toast('Pago de Agua realizado ✓'); }},
+        {t:'Internet · VTR', due:'12 Jul', amt:'$26.990', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},[React.createElement('path',{key:0,d:'M5 12.5a10 10 0 0 1 14 0'}),React.createElement('path',{key:1,d:'M8.5 15.5a5 5 0 0 1 7 0'}),React.createElement('circle',{key:2,cx:12,cy:19,r:1,fill:'currentColor',stroke:'none'})]), tid:'', on:()=>{ this.endGuided(); this.toast('Pago de Internet · VTR realizado ✓'); }},
       ],
       // ---- Pia cards (flow 3 & 4) ----
       execAporte:()=>this.execAporte(), cancelAporte:()=>this.cancelAporte(),
@@ -1424,13 +1476,7 @@ class Component extends DCLogic {
       coachTip: gfc?gfc.tipT:'',
       coachManual:!!(gfc&&gfc.manual),
       coachLabel: gfo?(gfo.mode==='auto'?'PIA lo preparó · tú confirmas':'PIA te acompaña'):'',
-      coachStyle: (gfc&&gfc.key==='home')?'bottom:96px':'top:100px',
+      coachStyle: (gfc&&(gfc.key==='home'||gfc.cb))?'bottom:96px':'top:100px',
       gfNext:()=>this.gfAdvance(), gfExit:()=>this.endGuided(),
       // toast
       toast:st.toast,
-    };
-  }
-}
-</script>
-</body>
-</html>
