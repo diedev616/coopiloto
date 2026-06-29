@@ -255,7 +255,7 @@
         <input id="tgt-cr-cuotas" value="{{ cuotas }}" onInput="{{ onCuotas }}" inputmode="numeric" placeholder="Ingresa número de cuotas" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; background:#fff; padding:0 16px; font-size:17px; font-family:Ubuntu; color:#2b2b2b; outline:none; box-shadow:{{ hlCuotas }}; transition:box-shadow .2s"/>
         <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Entre 5 y hasta 60 cuotas</div>
         <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-top:18px; margin-bottom:8px">Fecha del primer pago</div>
-        <button onClick="{{ openDate }}" style="width:100%; height:52px; border-radius:10px; border:1.5px solid {{ fechaBorder }}; background:{{ fechaBg }}; padding:0 16px; font-size:16px; font-family:Ubuntu; color:{{ fechaColor }}; outline:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; box-shadow:{{ hlFecha }}; transition:box-shadow .2s"><span>{{ fechaView }}</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <button id="tgt-cr-fecha" onClick="{{ openDate }}" style="width:100%; height:52px; border-radius:10px; border:1.5px solid {{ fechaBorder }}; background:{{ fechaBg }}; padding:0 16px; font-size:16px; font-family:Ubuntu; color:{{ fechaColor }}; outline:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; box-shadow:{{ hlFecha }}; transition:box-shadow .2s"><span>{{ fechaView }}</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
         <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-top:22px; margin-bottom:6px">Selecciona tus seguros</div>
         <div style="display:flex; flex-direction:column; gap:4px">
           <div style="display:flex; align-items:center; gap:13px; padding:8px 0"><span style="width:26px; height:26px; border-radius:7px; background:#1483C2; display:flex; align-items:center; justify-content:center; flex:none"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span><span style="font-size:16px; color:#2b2b2b">Desgravamen <span style="color:#7b7f86">(*)</span></span></div>
@@ -985,7 +985,7 @@ class Component extends DCLogic {
     if(mode==='auto') await this.say('De acuerdo. Te dejo todo listo: monto $100.000 en 24 cuotas. Revisa y, al final, TÚ confirmas el envío. Nunca envío la solicitud sin tu confirmación. 👍',{time:true});
     if(mode==='tour'){
       this.setState({monto:'', cuotas:'', fecha:'15/08/2026', sim:null, guide:null, gf:{flow:'credit',mode:'tour',i:0}});
-      setTimeout(()=>{ this.closePia(); this.go('creditos','creditos'); setTimeout(()=>this.measureSpot(),460); }, 760);
+      setTimeout(()=>{ this.closePia(); this.go('credito-sim','creditos'); setTimeout(()=>this.measureSpot(),470); }, 760);
     } else if(mode==='auto'){
       this.setState({monto:'100000', cuotas:'24', fecha:'15/08/2026', sim:null, gf:null, guide:null});
       setTimeout(()=>{ this.closePia(); this.go('credito-sim'); setTimeout(()=>this.toast('Te dejé listo: $100.000 en 24 cuotas. Revisa y toca Simular. 👍'),900); }, 760);
@@ -1014,10 +1014,10 @@ class Component extends DCLogic {
       {key:'confirm', screen:'transferir',               target:'tgt-tr-confirm',   manual:false, tip:'Revisa los datos. Cuando estés seguro/a, toca "Transferir": la confirmación final es tuya. ✅', tipT:'Paso 3 de 3 · Revisa y toca "Transferir". Tú confirmas. ✅', side:'top'},
     ];
     if(flow==='credit') return [
-      {key:'entry',     screen:'creditos',     tab:'creditos', target:'tgt-cr-entry',     manual:false, tip:'Toca "Simula tu Crédito de Consumo" para empezar.', side:'bottom'},
       {key:'monto',     screen:'credito-sim',                  target:'tgt-cr-monto',     manual:true,  tip:'Escribe el monto (ej: 100000) y toca Siguiente.', side:'bottom'},
       {key:'cuotas',    screen:'credito-sim',                  target:'tgt-cr-cuotas',    manual:true,  tip:'¿En cuántas cuotas? (ej: 24) y toca Siguiente.', side:'bottom'},
-      {key:'simular',   screen:'credito-sim',                  target:'tgt-cr-simular',   manual:false, tip:'La fecha ya quedó sugerida y el Desgravamen es obligatorio. Toca Simular.', side:'top'},
+      {key:'fecha',     screen:'credito-sim',                  target:'tgt-cr-fecha',     manual:false, tip:'La fecha del primer pago ya quedó sugerida (15/08/2026). Puedes cambiarla o tocar Siguiente.', side:'bottom'},
+      {key:'simular',   screen:'credito-sim',                  target:'tgt-cr-simular',   manual:false, tip:'El Desgravamen es obligatorio. Toca Simular para ver tu cuota.', side:'top'},
       {key:'continuar', screen:'credito-result',               target:'tgt-cr-continuar', manual:false, tip:'Esta es tu cuota y su CAE. Si te acomoda, toca Continuar.', side:'top'},
       {key:'confirmar', screen:'credito-info',                 target:'tgt-cr-confirmar', manual:false, tip:'Revisa tus datos y toca "Confirmar y continuar". El envío es tu decisión. ✅', side:'top'},
     ];
