@@ -1128,22 +1128,51 @@ class Component extends DCLogic {
   onPiaKey(e){ if(e.key==='Enter') this.sendPia(); }
   async sendPia(){ const t=this.state.piaInput.trim(); if(!t) return; this.setState({piaInput:''}); await this.userMsg(t); await this.freeAnswer(t); }
   async freeAnswer(t){
-    const s=t.toLowerCase();
-    if(/(transfer|enviar)/.test(s)) return this.chip('transferir');
-    if(/(analiz|estad|resumen|en qu[eé] gast|cu[aá]nto gast)/.test(s)) return this.chip('movanalisis');
-    if(/(movimiento|gast)/.test(s)) return this.chip('movimientos');
-    if(/(simul|cr[eé]dito|prestamo|pr[eé]stamo)/.test(s)) return this.chip('simular');
-    if(/(tasa|cae|inter[eé]s)/.test(s)) return this.chip('tasas');
-    if(/(ahorr|meta)/.test(s)) return this.chip('ahorro');
-    if(/(cuota|participa|aporte)/.test(s)) return this.chip('aporte');
-    if(/(despacho|env[ií]o)/.test(s)) return this.chip('despacho');
-    if(/(pago|pagar)/.test(s)) return this.chip('pago');
-    if(/(cup[oó]n|descuento)/.test(s)) return this.chip('cupon');
-    if(/(segur|garant)/.test(s)) return this.chip('seguridad');
-    if(/(hipotec|vivienda|propiedad|comprar casa|comprar depto)/.test(s)) return this.chip('edu_hipotecario');
-    if(/(aprend|educa|expl[ií]ca|ens[eé]ñ|qu[eé] es|c[oó]mo funciona)/.test(s)) return this.chip('educacion');
-    await this.say('Entiendo. Puedo ayudarte con esto: 😊');
-    await this.mainChips();
+    const s=t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+    const has=(...w)=>w.some(x=>s.includes(x));
+    // saludos y cortesia
+    if(/^(hola|holi|buenas|buenos dias|buen dia|hey|que tal|como estas|como va|saludos)\b/.test(s)||s==='hola'){ await this.say('¡Hola Diego! 👋 Soy PIA, tu copiloto en Coopeuch. Cuéntame en qué te ayudo: tu Cuenta Vista, un crédito, tus tarjetas, ahorro o inversión, pagos o seguridad. 💚',{time:true}); return this.mainChips(); }
+    if(s.length<24&&has('gracias','muchas gracias','genial','perfecto','excelente','buenisimo','de lujo','ok gracias')){ return this.say('¡Con gusto, Diego! 😊 Aquí estoy para lo que necesites.',{time:true}); }
+    if(has('quien eres','que eres','eres un bot','eres una ia','eres real','como te llamas','tu nombre','que puedes hacer','en que me ayudas','que sabes hacer')){ await this.say('Soy PIA, tu copiloto digital dentro de la app de Coopeuch. 💚 Te explico tus productos y te acompaño paso a paso en tus trámites, pero TÚ siempre decides y confirmas cada acción: nunca muevo tu dinero por mi cuenta.',{time:true}); await this.say('Estas son algunas cosas en las que te puedo ayudar: 👇'); return this.mainChips(); }
+    // saldo / cuenta vista
+    if(has('saldo','cuanto tengo','cuanta plata','cuanto dinero','disponible','mi cuenta','cuenta vista','cuanto hay')){ await this.say('Tu Cuenta Vista Coopeuch (N° 012232334) tiene $234.040 disponibles. 💳',{time:true}); await this.say('¿Quieres ver el detalle de tus movimientos o transferir? 👇'); return this.pushChipsRaw([{label:'Ver mis movimientos',icon:this.ic('list'),on:()=>this.chip('movimientos')},{label:'Transferir dinero',icon:this.ic('transfer'),on:()=>this.chip('transferir')}]); }
+    // tarjeta perdida / bloqueo / fraude
+    if(has('bloquear','bloqueo','perdi','perdida','robaron','me robaron','robo','extravi','clonaron','cargo que no')){ await this.say('Si perdiste tu tarjeta, te la robaron o ves un cargo que no reconoces, lo primero es bloquearla para proteger tu dinero. 🔒',{time:true}); await this.say('Puedes hacerlo en la sección Tarjetas, o llamando al 600 200 1200 (24/7). ¿Te llevo a Tarjetas?'); return this.pushChipsRaw([{label:'Ir a Tarjetas',icon:this.ic('card'),on:()=>{ this.userMsg('Ir a Tarjetas'); this.closePia(); this.go('tarjetas'); }}]); }
+    // activar tarjeta / clave tarjeta
+    if(has('activar tarjeta','activar mi tarjeta','activa la tarjeta','clave de la tarjeta','clave tarjeta','clave de mi tarjeta','pin de la tarjeta','llego mi tarjeta')){ await this.say('Puedes activar tu tarjeta y crear su clave en la sección Tarjetas. Te dejo ahí. 💳',{time:true}); return this.pushChipsRaw([{label:'Ir a Tarjetas',icon:this.ic('card'),on:()=>{ this.userMsg('Ir a Tarjetas'); this.closePia(); this.go('tarjetas'); }}]); }
+    // clave de internet / contrasena
+    if(has('clave','contrasena','password','recuperar clave','no puedo entrar','olvide')){ await this.say('Tu clave de internet es personal y secreta. 🔐 Si la olvidaste, recupérala desde la pantalla de inicio con "¿Olvidaste tu clave?".',{time:true}); await this.say('Importante: en Coopeuch NUNCA te pediremos tu clave por teléfono, email o WhatsApp.'); return this.mainChips(); }
+    // sucursales / horarios
+    if(has('sucursal','horario','atienden','atencion','oficina','donde queda','direccion')){ await this.say('Las sucursales Coopeuch atienden de lunes a viernes, generalmente de 9:00 a 14:00 h. 📍 En "Sucursales" (en el inicio) ves la más cercana con su horario.',{time:true}); await this.say('Y recuerda: casi todo lo puedes hacer aquí en la app, sin ir a la sucursal. 😊'); return this.mainChips(); }
+    // contacto / call center
+    if(has('telefono','llamar','call center','contacto','contactar','numero de','hablar con','soporte','mesa de ayuda','ejecutivo','reclamo')){ await this.say('Puedes contactarnos en la Mesa de Ayuda al 600 200 1200. 📞 Si prefieres, un ejecutivo puede llamarte para acompañarte en un crédito u otra gestión.',{time:true}); return this.mainChips(); }
+    // requisitos credito
+    if(has('requisito','documento','necesito para','me dan un credito','me prestan','califico','puedo pedir')){ await this.say('Para simular un Crédito de Consumo no necesitas nada: es 100% online y sin compromiso. ✨ Para cursarlo se considera, en general, ser socio, tener renta demostrable y buen comportamiento de pago.',{time:true}); await this.say('Lo mejor es simular y ver tu cuota. ¿Lo hacemos? 👇'); return this.pushChipsRaw([{label:'Simular un crédito',icon:this.ic('doc'),on:()=>this.chip('simular')}]); }
+    // giro / cajero / efectivo
+    if(has('girar','giro','cajero','retirar','retiro','sacar plata','sacar dinero','efectivo')){ await this.say('Puedes girar efectivo con tu tarjeta Coopeuch en cajeros de la red y en Caja Vecina/Servipag según convenio. 🏧 Hoy tu Cuenta Vista tiene $234.040 disponibles.',{time:true}); return this.mainChips(); }
+    // remanente / ser socio
+    if(has('remanente','socio','dueno','reparto','beneficios de ser')){ return this.chip('edu_cuota'); }
+    // --- rutas a flujos existentes (ricos) ---
+    if(/(transfer|enviar dinero|enviar plata|mandar plata|girar a|pasar plata)/.test(s)) return this.chip('transferir');
+    if(/(analiz|estadistic|resumen|en que gast|cuanto gast|cuanto gaste)/.test(s)) return this.chip('movanalisis');
+    if(/(movimiento|cartola|ultimos gastos|mis gastos)/.test(s)) return this.chip('movimientos');
+    if(/(hipotec|vivienda|propiedad|comprar.{0,8}(casa|depto|departamento)|casa propia|mi casa propia|dividendo)/.test(s)) return this.chip('edu_hipotecario');
+    if(/(deposito a plazo|deposito)/.test(s)) return this.chip('deposito');
+    if(/(fondo mutuo|fondos mutuos|fondos)/.test(s)) return this.chip('fondos');
+    if(/(invertir|inversion|donde invierto|hacer crecer)/.test(s)) return this.chip('edu_ahorroinv');
+    if(/(simul|credito|prestamo|consumo)/.test(s)) return this.chip('simular');
+    if(/(tasa|cae|interes)/.test(s)) return this.chip('tasas');
+    if(/(ahorr|meta|guardar plata)/.test(s)) return this.chip('ahorro');
+    if(/(cuota de partic|participacion|aporte|aportar)/.test(s)) return this.chip('aporte');
+    if(/(despacho|cuando llega|envio)/.test(s)) return this.chip('despacho');
+    if(/(pagar|pago|cuenta de luz|servicios basicos)/.test(s)) return this.chip('pago');
+    if(/(cupon|descuento|beneficio)/.test(s)) return this.chip('cupon');
+    if(/(segur|garant|fraude|estafa|phishing|me hackearon)/.test(s)) return this.chip('seguridad');
+    if(/(aprend|educa|explica|enseñ|que es|como funciona|ensename)/.test(s)) return this.chip('educacion');
+    // --- fallback inteligente (responde, no solo chips) ---
+    await this.say('Buena pregunta, Diego. 🤔 Como copiloto de Coopeuch, te respondo mejor sobre tu mundo financiero: Cuenta Vista y movimientos, créditos (consumo e hipotecario), tarjetas, ahorro e inversión, pagos y seguridad.',{time:true});
+    await this.say('¿Cuál de estos te sirve ahora? Y si me preguntas con otras palabras, también te entiendo. 👇');
+    return this.mainChips();
   }
 
   // chip handler — full flows added in next stage; basic answers here
