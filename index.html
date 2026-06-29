@@ -1016,7 +1016,7 @@ class Component extends DCLogic {
     if(flow==='credit') return [
       {key:'monto',     screen:'credito-sim',                  target:'tgt-cr-monto',     manual:true,  tip:'Escribe el monto (ej: 100000) y toca Siguiente.', side:'bottom'},
       {key:'cuotas',    screen:'credito-sim',                  target:'tgt-cr-cuotas',    manual:true,  tip:'¿En cuántas cuotas? (ej: 24) y toca Siguiente.', side:'bottom'},
-      {key:'fecha',     screen:'credito-sim',                  target:'tgt-cr-fecha',     manual:false, tip:'La fecha del primer pago ya quedó sugerida (15/08/2026). Puedes cambiarla o tocar Siguiente.', side:'bottom'},
+      {key:'fecha',     screen:'credito-sim',                  target:'tgt-cr-fecha',     manual:true,  tip:'La fecha del primer pago ya quedó sugerida (15/08/2026). Puedes cambiarla o tocar Siguiente.', side:'bottom'},
       {key:'simular',   screen:'credito-sim',                  target:'tgt-cr-simular',   manual:false, tip:'El Desgravamen es obligatorio. Toca Simular para ver tu cuota.', side:'top'},
       {key:'continuar', screen:'credito-result',               target:'tgt-cr-continuar', manual:false, tip:'Esta es tu cuota y su CAE. Si te acomoda, toca Continuar.', side:'top'},
       {key:'confirmar', screen:'credito-info',                 target:'tgt-cr-confirmar', manual:false, tip:'Revisa tus datos y toca "Confirmar y continuar". El envío es tu decisión. ✅', side:'top'},
