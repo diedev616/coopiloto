@@ -874,11 +874,23 @@
     <div style="flex:1">
       <div style="font-size:11.5px; font-weight:700; color:#E81E2C; letter-spacing:.2px">PIA · tour guiado</div>
       <div style="font-size:13.5px; color:#2b2b2b; line-height:1.38; margin-top:2px">{{ spot.tip }}</div>
-      <div style="display:flex; gap:12px; margin-top:9px; align-items:center">
+      <div style="display:flex; gap:9px; margin-top:9px; align-items:center">
+        <button onClick="{{ gfWhy }}" style="background:#FDE7E9; color:#E81E2C; border:none; border-radius:13px; padding:8px 12px; font-family:Ubuntu; font-size:12.5px; font-weight:700; cursor:pointer">¿Qué es esto?</button>
         <sc-if value="{{ tipManual }}" hint-placeholder-val="{{ false }}"><button onClick="{{ gfNext }}" style="background:#E81E2C; color:#fff; border:none; border-radius:13px; padding:8px 15px; font-family:Ubuntu; font-size:12.5px; font-weight:700; cursor:pointer">Siguiente ▸</button></sc-if>
-        <button onClick="{{ gfExit }}" style="background:none; border:none; color:#9aa0a8; font-family:Ubuntu; font-size:12.5px; font-weight:700; cursor:pointer; text-decoration:underline">Salir del tour</button>
+        <button onClick="{{ gfExit }}" style="background:none; border:none; color:#9aa0a8; font-family:Ubuntu; font-size:12.5px; font-weight:700; cursor:pointer; text-decoration:underline">Salir</button>
       </div>
     </div>
+  </div>
+  </sc-if>
+  <sc-if value="{{ whyOn }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ gfWhyClose }}" style="position:absolute; inset:0; z-index:84; background:rgba(8,10,14,.45)"></div>
+  <div style="position:absolute; left:22px; right:22px; top:150px; z-index:86; background:#fff; border-radius:18px; padding:18px; box-shadow:0 22px 54px rgba(0,0,0,.45)">
+    <div style="display:flex; gap:11px; align-items:center; margin-bottom:11px">
+      <img src="assets/pia-avatar.png" style="width:46px; height:46px; border-radius:50%; object-fit:cover; flex:none; box-shadow:0 1px 4px rgba(0,0,0,.2)"/>
+      <div><div style="font-size:11.5px; font-weight:700; color:#E81E2C; letter-spacing:.2px">PIA te explica</div><div style="font-size:16px; font-weight:700; color:#2b2b2b">{{ whyTitle }}</div></div>
+    </div>
+    <div style="font-size:14px; color:#3a3a3a; line-height:1.5; max-height:280px; overflow:auto">{{ tipWhy }}</div>
+    <button onClick="{{ gfWhyClose }}" style="margin-top:15px; width:100%; background:#E81E2C; color:#fff; border:none; border-radius:24px; padding:13px; font-family:Ubuntu; font-size:15px; font-weight:700; cursor:pointer">Entendido</button>
   </div>
   </sc-if>
 
@@ -921,7 +933,7 @@ class Component extends DCLogic {
     piaOpen:false, piaShown:false, piaMsgs:[], piaInput:'', piaTyping:false, seeded:false,
     peek:null, guide:null, hl:null, toast:null,
     // pia: modos de acompañamiento y tour guiado
-    piaFull:false, gf:null, spot:null, piaTopic:null,
+    piaFull:false, gf:null, spot:null, whyOpen:false, piaTopic:null,
     // credit form
     monto:'', cuotas:'', fecha:'', seg:{desgravamen:true,cesantia:false,invalidez:false,hospital:false},
     sim:null, segurosOpen:false, masOpen:false, dateSheet:false, dateTemp:'15/08/2026',
@@ -1014,12 +1026,12 @@ class Component extends DCLogic {
       {key:'confirm', screen:'transferir',               target:'tgt-tr-confirm',   manual:false, tip:'Revisa los datos. Cuando estés seguro/a, toca "Transferir": la confirmación final es tuya. ✅', tipT:'Paso 3 de 3 · Revisa y toca "Transferir". Tú confirmas. ✅', side:'top'},
     ];
     if(flow==='credit') return [
-      {key:'monto',     screen:'credito-sim',                  target:'tgt-cr-monto',     manual:true,  tip:'Escribe el monto (ej: 100000) y toca Siguiente.', side:'bottom'},
-      {key:'cuotas',    screen:'credito-sim',                  target:'tgt-cr-cuotas',    manual:true,  tip:'¿En cuántas cuotas? (ej: 24) y toca Siguiente.', side:'bottom'},
-      {key:'fecha',     screen:'credito-sim',                  target:'tgt-cr-fecha',     manual:true,  tip:'La fecha del primer pago ya quedó sugerida (15/08/2026). Puedes cambiarla o tocar Siguiente.', side:'bottom'},
-      {key:'simular',   screen:'credito-sim',                  target:'tgt-cr-simular',   manual:false, tip:'El Desgravamen es obligatorio. Toca Simular para ver tu cuota.', side:'top'},
-      {key:'continuar', screen:'credito-result',               target:'tgt-cr-continuar', manual:false, tip:'Esta es tu cuota y su CAE. Si te acomoda, toca Continuar.', side:'top'},
-      {key:'confirmar', screen:'credito-info',                 target:'tgt-cr-confirmar', manual:false, tip:'Revisa tus datos y toca "Confirmar y continuar". El envío es tu decisión. ✅', side:'top'},
+      {key:'monto',     screen:'credito-sim',                  target:'tgt-cr-monto',     manual:true,  tip:'Escribe el monto (ej: 100000) y toca Siguiente.', name:'El monto', exp:'Es la cantidad de dinero que quieres pedir prestada. En Coopeuch puedes simular desde $100.000 hasta $50.000.000. Escríbelo sin puntos; nosotros le damos el formato. Recuerda: a mayor monto, mayor será cada cuota, así que pide solo lo que realmente necesitas.', side:'bottom'},
+      {key:'cuotas',    screen:'credito-sim',                  target:'tgt-cr-cuotas',    manual:true,  tip:'¿En cuántas cuotas? (ej: 24) y toca Siguiente.', name:'Las cuotas', exp:'Es el número de mensualidades en las que pagarás el crédito (entre 5 y 60). Con más cuotas, la cuota mensual baja pero pagas más interés en total; con menos cuotas, la cuota sube pero pagas menos interés. Elige un número que puedas pagar con tranquilidad cada mes.', side:'bottom'},
+      {key:'fecha',     screen:'credito-sim',                  target:'tgt-cr-fecha',     manual:true,  tip:'La fecha del primer pago ya quedó sugerida (15/08/2026). Puedes cambiarla o tocar Siguiente.', name:'La fecha del primer pago', exp:'Es el día en que pagarás tu primera cuota. Coopeuch te sugiere una fecha, pero puedes cambiarla para que coincida, por ejemplo, con el día en que recibes tu sueldo o tu pensión. Las siguientes cuotas se pagarán el mismo día de cada mes.', side:'bottom'},
+      {key:'simular',   screen:'credito-sim',                  target:'tgt-cr-simular',   manual:false, tip:'El Desgravamen es obligatorio. Toca Simular para ver tu cuota.', name:'Seguros y simulación', exp:'El Desgravamen es un seguro obligatorio: si el titular fallece, paga el saldo del crédito y protege a su familia. Al tocar Simular verás tu cuota mensual, la tasa de interés y el CAE (Carga Anual Equivalente), que resume en un solo porcentaje el costo total del crédito. Mientras más bajo el CAE, mejor.', side:'top'},
+      {key:'continuar', screen:'credito-result',               target:'tgt-cr-continuar', manual:false, tip:'Esta es tu cuota y su CAE. Si te acomoda, toca Continuar.', name:'Tu resultado', exp:'Aquí ves tu cuota mensual estimada y el CAE, que es el costo total del crédito expresado en un porcentaje anual. Revísalo con calma: todavía no estás contratando nada. Si te acomoda, toca Continuar; si no, puedes volver y cambiar el monto o las cuotas.', side:'top'},
+      {key:'confirmar', screen:'credito-info',                 target:'tgt-cr-confirmar', manual:false, tip:'Revisa tus datos y toca "Confirmar y continuar". El envío es tu decisión. ✅', name:'Confirmar tus datos', exp:'Aquí revisas tu teléfono y correo para que Coopeuch pueda contactarte. Al tocar Confirmar y continuar envías tu solicitud para evaluación; no se descuenta dinero de inmediato. El envío es siempre tu decisión: nada se solicita sin que tú lo confirmes.', side:'top'},
     ];
     if(flow==='hipotecario') return [
       {key:'valor', screen:'hipotecario', target:'tgt-hip-valor', manual:true, cb:true, tip:'Escribe el valor de la propiedad en UF (ej: 3000) y toca Siguiente.', tipT:'Paso 1 de 4 \u00b7 Escribe el valor en UF (ej: 3000) y toca Siguiente.', side:'bottom'},
@@ -1088,8 +1100,8 @@ class Component extends DCLogic {
     setTimeout(()=>{ this.closePia(); this.go(first.screen, first.tab); setTimeout(()=>this.measureSpot(),440); }, 760);
   }
   gfCur(){ const g=this.state.gf; if(!g) return null; return this.gfSteps(g.flow)[g.i]||null; }
-  gfAdvance(){ const g=this.state.gf; if(!g) return; const steps=this.gfSteps(g.flow); const ni=g.i+1; if(ni>=steps.length){ this.endGuided(); return; } const nx=steps[ni]; this.setState({gf:{...g,i:ni}, spot:null}); if(nx.screen!==this.state.screen) this.go(nx.screen, nx.tab); setTimeout(()=>this.measureSpot(),340); }
-  endGuided(){ this.setState({gf:null, spot:null, hlTransfer:false}); }
+  gfAdvance(){ const g=this.state.gf; if(!g) return; const steps=this.gfSteps(g.flow); const ni=g.i+1; if(ni>=steps.length){ this.endGuided(); return; } const nx=steps[ni]; this.setState({gf:{...g,i:ni}, spot:null, whyOpen:false}); if(nx.screen!==this.state.screen) this.go(nx.screen, nx.tab); setTimeout(()=>this.measureSpot(),340); }
+  endGuided(){ this.setState({gf:null, spot:null, whyOpen:false, hlTransfer:false}); }
   measureSpot(){ const g=this.state.gf; if(!g||g.mode!=='tour'){ this.setState({spot:null}); return; } const step=this.gfCur(); if(!step) return; const el0=document.getElementById(step.target); if(el0&&el0.scrollIntoView){ try{ el0.scrollIntoView({block:'center',behavior:'instant'}); }catch(e){ try{ el0.scrollIntoView(); }catch(e2){} } } setTimeout(()=>{ const el=document.getElementById(step.target), screen=document.getElementById('screen'); if(!el||!screen) return; const er=el.getBoundingClientRect(), sr=screen.getBoundingClientRect(); const sc=(sr.width/(screen.offsetWidth||380))||1, pad=7; this.setState({spot:{x:(er.left-sr.left)/sc-pad, y:(er.top-sr.top)/sc-pad, w:er.width/sc+pad*2, h:er.height/sc+pad*2, tip:step.tip, side:step.side}}); }, 130); }
   toTransferir(){ this.setState({transferDone:false, transferMsg:''}); const g=this.state.gf; if(!(g&&g.mode==='auto')) this.setState({transferMonto:''}); this.go('transferir'); if(g){ const cur=this.gfSteps(g.flow)[g.i]; if(cur&&cur.key==='home'){ this.gfAdvance(); } else { setTimeout(()=>this.measureSpot(),360); } } }
   onTransferMonto(e){ const v=e.target.value.replace(/\D/g,'').slice(0,7); this.setState({transferMonto:v}); }
@@ -1482,13 +1494,16 @@ class Component extends DCLogic {
       // acompañamiento guiado (3 modos)
       spot:st.spot, spotOn:!!(gfo&&gfo.mode==='tour'&&spot),
       tipManual:!!(gfc&&gfc.manual),
+      whyOn:!!(st.whyOpen&&gfo&&gfo.mode==='tour'&&gfc),
+      tipWhy: gfc?(gfc.exp||gfc.tip||''):'',
+      whyTitle: gfc?(gfc.name||'Sobre este paso'):'',
       tipTop: spot ? (spot.side==='top' ? Math.max(8, spot.y-132) : Math.min(686, spot.y+spot.h+12)) : 0,
       coachOn:!!(gfo&&gfo.mode!=='tour'&&gfc),
       coachTip: gfc?gfc.tipT:'',
       coachManual:!!(gfc&&gfc.manual),
       coachLabel: gfo?(gfo.mode==='auto'?'PIA lo preparó · tú confirmas':'PIA te acompaña'):'',
       coachStyle: (gfc&&(gfc.key==='home'||gfc.cb))?'bottom:96px':'top:100px',
-      gfNext:()=>this.gfAdvance(), gfExit:()=>this.endGuided(),
+      gfNext:()=>this.gfAdvance(), gfExit:()=>this.endGuided(), gfWhy:()=>this.setState({whyOpen:true}), gfWhyClose:()=>this.setState({whyOpen:false}),
       // toast
       toast:st.toast,
     };
