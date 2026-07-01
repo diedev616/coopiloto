@@ -410,6 +410,11 @@
         <div style="display:flex; margin-top:14px"><div style="flex:1"><div style="font-size:13.5px; color:#7b7f86">Titular:</div><div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-top:2px">Diego Ignacio Rivera Olave</div></div><div style="flex:1"><div style="font-size:13.5px; color:#7b7f86">Cuenta:</div><div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-top:2px">Sin Libreta</div></div></div>
       </div>
 
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:16px 18px; margin-top:14px; display:flex; align-items:center; gap:12px">
+        <div style="flex:1"><div style="font-size:17px; font-weight:700; color:#2b2b2b; line-height:1.25">¿Deseas crear una nueva Cuenta Ahorro?</div></div>
+        <svg width="60" height="60" viewBox="0 0 64 64" style="flex:none"><ellipse cx="32" cy="53" rx="21" ry="4.5" fill="#F3D9DE"/><path d="M17 35c0-9 7-15 16-15s17 6 17 14c0 4-2 7-4 9v5h-6v-3H27v3h-6v-5c-2-2-4-4-4-8z" fill="#F5A9B8"/><circle cx="43" cy="32" r="1.8" fill="#3a3a3a"/><path d="M49 31c3-1 5 1 5 3" stroke="#E58AA0" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="30" y="14" width="5" height="7" rx="2" fill="#E8B04B"/><circle cx="32.5" cy="13" r="4" fill="#F2C15A"/></svg>
+      </div>
+      <button onClick="{{ toAhorroProgramado }}" style="width:100%; background:#fff; border:none; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:16px 18px; margin-top:14px; display:flex; align-items:center; gap:14px; cursor:pointer; font-family:Ubuntu"><span style="color:#15639E; flex:none"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4" width="8" height="8" rx="1.5"/><rect x="13" y="4" width="8" height="8" rx="1.5"/><rect x="3" y="14" width="8" height="6" rx="1.5"/><path d="M13.5 15.5h7M13.5 18.5h4"/></svg></span><span style="flex:1; text-align:left; font-size:16px; font-weight:700; color:#2b2b2b">Ahorro programado</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px; margin-top:14px">
         <div style="display:flex; justify-content:space-between; align-items:center"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Meta de ahorro</span><span style="font-size:13px; color:#34A853; font-weight:700; background:#E5F5E9; padding:3px 9px; border-radius:10px">{{ metaPct }}%</span></div>
         <div style="display:flex; justify-content:space-between; margin-top:14px; align-items:baseline"><span style="font-size:24px; font-weight:700; color:#243757">{{ metaActualText }}</span><span style="font-size:15px; color:#7b7f86">de {{ metaObjetivoText }}</span></div>
@@ -440,8 +445,8 @@
     <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 96px">
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); overflow:hidden">
         <div style="font-size:18px; font-weight:700; color:#2b2b2b; padding:16px 18px; border-bottom:1px solid #EEF0F2">Productos</div>
-        <button id="tgt-inv-deposito" onClick="{{ openPiaDeposito }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M12 13v3M10.5 14h3"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Depósitos a Plazo</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Define un plazo para invertir en pesos y conoce tu ganancia desde el inicio.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
-        <button id="tgt-inv-fondos" onClick="{{ openPiaFondos }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9h16l-2 9H6z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Fondos Mutuos</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Invierte en un fondo de acuerdo a tu perfil y haz crecer tu dinero.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button id="tgt-inv-deposito" onClick="{{ toDepositoPlazo }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4M12 13v3M10.5 14h3"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Depósitos a Plazo</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Define un plazo para invertir en pesos y conoce tu ganancia desde el inicio.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button id="tgt-inv-fondos" onClick="{{ toInvOnboarding }}" style="width:100%; background:none; border:none; border-bottom:1px solid #EEF0F2; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 9h16l-2 9H6z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Fondos Mutuos</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Invierte en un fondo de acuerdo a tu perfil y haz crecer tu dinero.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
         <button onClick="{{ toCuotaParticipacion }}" style="width:100%; background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu"><span style="color:#15639E"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v9h9a9 9 0 1 1-9-9z"/><path d="M14 3a7 7 0 0 1 7 7h-7z"/></svg></span><span style="flex:1; text-align:left"><span style="font-size:16px; font-weight:700; color:#2b2b2b">Cuotas de Participación</span><div style="font-size:13px; color:#7b7f86; margin-top:3px; line-height:1.35">Tu aporte como Socio te da acceso a beneficios exclusivos y a recibir un remanente anual.</div></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
@@ -454,14 +459,33 @@
     <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
     <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backInversiones }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">CUOTAS DE PARTICIPACIÓN</div><div style="width:34px"></div></div>
     <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
-      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:20px; text-align:center">
-        <div style="font-size:15px; color:#5a5e66">Tu participación como Socio</div>
-        <div style="display:flex; justify-content:center; gap:30px; margin-top:14px">
-          <div><div style="font-size:34px; font-weight:700; color:#243757">{{ cuotaPart }}</div><div style="font-size:13px; color:#7b7f86">Cuotas</div></div>
-          <div><div style="font-size:34px; font-weight:700; color:#243757">{{ aporteActualText }}</div><div style="font-size:13px; color:#7b7f86">Aporte actual</div></div>
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:20px 18px; text-align:center">
+        <div style="font-size:15px; color:#5a5e66">Monto ahorrado a la fecha</div>
+        <div style="font-size:32px; font-weight:700; color:#243757; margin-top:4px">{{ aporteActualText }}</div>
+        <div style="margin-top:16px; padding-top:14px; border-top:1px solid #EEF0F2; text-align:left">
+          <div style="display:flex; justify-content:space-between; padding:5px 0"><span style="font-size:14.5px; color:#5a5e66">Total cuotas pagadas:</span><span style="font-size:14.5px; font-weight:700; color:#2b2b2b">{{ cuotaPart }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0"><span style="font-size:14.5px; color:#5a5e66">Cuotas mensuales pactadas:</span><span style="font-size:14.5px; font-weight:700; color:#2b2b2b">1</span></div>
         </div>
-        <div style="margin-top:16px; padding-top:14px; border-top:1px solid #EEF0F2; font-size:13.5px; color:#7b7f86; line-height:1.45">Aumentar tu cuota incrementa tu remanente anual y desbloquea más beneficios exclusivos.</div>
-        <button id="tgt-aporte-btn" onClick="{{ openPiaAporte }}" style="width:100%; height:52px; border-radius:26px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:18px; display:flex; align-items:center; justify-content:center; gap:9px"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FFD66B"><path d="M12 2l1.6 6.4L20 10l-6.4 1.6L12 18l-1.6-6.4L4 10l6.4-1.6z"/></svg> Aumentar mi cuota con Pia</button>
+        <div style="display:flex; align-items:center; gap:9px; background:#EAF4FB; border-radius:10px; padding:10px 12px; margin-top:12px"><span style="width:20px; height:20px; border-radius:50%; background:#1B7FB8; color:#fff; font-size:12px; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none">i</span><span style="font-size:13.5px; color:#15639E; text-align:left">1 cuota de participación es igual a <b>$368</b></span></div>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:14px">
+        <button id="tgt-aporte-btn" onClick="{{ openPiaAporte }}" style="flex:1; background:#fff; border:1px solid #EBECEF; border-radius:14px; padding:15px 4px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:7px; font-family:Ubuntu; box-shadow:0 4px 14px rgba(20,30,60,.06)"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#243757" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L18 10l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg><span style="font-size:12px; color:#3a3a3a; text-align:center; line-height:1.15">Aumentar Cuotas</span></button>
+        <button onClick="{{ pagoAutomatico }}" style="flex:1; background:#fff; border:1px solid #EBECEF; border-radius:14px; padding:15px 4px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:7px; font-family:Ubuntu; box-shadow:0 4px 14px rgba(20,30,60,.06)"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#243757" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg><span style="font-size:12px; color:#3a3a3a; text-align:center; line-height:1.15">Pago Automático</span></button>
+        <button onClick="{{ historialPago }}" style="flex:1; background:#fff; border:1px solid #EBECEF; border-radius:14px; padding:15px 4px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:7px; font-family:Ubuntu; box-shadow:0 4px 14px rgba(20,30,60,.06)"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#243757" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg><span style="font-size:12px; color:#3a3a3a; text-align:center; line-height:1.15">Historial de pago</span></button>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px; background:#EAF7FB; border:1px solid #CDE9F3; border-radius:12px; padding:13px 15px; margin-top:14px"><span style="width:22px; height:22px; border-radius:50%; background:#1B7FB8; color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex:none">i</span><div style="font-size:14px; color:#15639E; line-height:1.35"><b>¡Muy bien!</b> Estás al día en el pago de tus cuotas.</div></div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); margin-top:14px; overflow:hidden">
+        <button onClick="{{ toggleCuotaInfo }}" style="width:100%; background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:12px; padding:16px; font-family:Ubuntu"><span style="color:#1B7FB8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 5h8a3 3 0 0 1 3 3v11a2.5 2.5 0 0 0-2.5-2.5H4z"/><path d="M20 5h-5a3 3 0 0 0-3 3v11"/></svg></span><span style="flex:1; text-align:left; font-size:15px; font-weight:700; color:#2b2b2b">Conoce tus Cuotas de Participación</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform:{{ cuotaInfoChevron }}; transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg></button>
+        <sc-if value="{{ cuotaInfoOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 18px 18px; text-align:left">
+          <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-bottom:10px">¿Qué son?</div>
+          <div style="font-size:13.5px; color:#5a5e66; line-height:1.5; margin-bottom:11px">Cada cuota es tu aporte a la cooperativa y lo que da derecho a ser socio.</div>
+          <div style="font-size:13.5px; color:#5a5e66; line-height:1.5; margin-bottom:11px">El valor de la cuota se reajusta anualmente.</div>
+          <div style="font-size:13.5px; color:#5a5e66; line-height:1.5; margin-bottom:11px">El pago de ellas es mensual y su valor corresponde al número de cuotas pactadas.</div>
+          <div style="font-size:13.5px; color:#5a5e66; line-height:1.5; margin-bottom:11px">Cada cuota es tuya; si quieres dejar de ser socio de la cooperativa, puedes retirar el monto ahorrado.</div>
+          <div style="font-size:13.5px; color:#5a5e66; line-height:1.5">Su pago es muy importante: con el aporte de todos los socios podemos crear nuevos y mejores productos financieros.</div>
+        </div>
+        </sc-if>
       </div>
     </div>
   </div>
@@ -476,11 +500,17 @@
       <div style="border-radius:18px; background:linear-gradient(135deg,#5A0A12,#7C1019 55%,#4A0810); padding:20px; position:relative; overflow:hidden; box-shadow:0 10px 26px rgba(90,10,18,.35); min-height:190px">
         <div style="position:absolute; right:-30px; top:-30px; width:200px; height:200px; border-radius:50%; background:rgba(255,255,255,.05)"></div>
         <div style="display:flex; justify-content:space-between; align-items:flex-start"><div style="display:flex; align-items:center; gap:9px"><svg width="26" height="26" viewBox="0 0 32 32"><path d="M7 25 V11 a8 8 0 0 1 8-8 h10 v6 h-9 a3 3 0 0 0-3 3 v13 z" fill="rgba(255,255,255,.6)"/></svg><span style="color:rgba(255,255,255,.85); font-size:15px; font-weight:500">Tarjeta de Débito</span></div><span style="font-size:11px; font-weight:700; color:rgba(255,255,255,.7); border:1px solid rgba(255,255,255,.4); padding:3px 9px; border-radius:6px; letter-spacing:1px">TITULAR</span></div>
-        <div style="color:rgba(255,255,255,.85); font-size:19px; letter-spacing:3px; font-weight:500; margin-top:8px">**** 0912</div>
-        <div style="text-align:center; margin-top:14px"><div style="width:40px; height:40px; border:2px dashed rgba(255,255,255,.7); border-radius:50%; margin:0 auto"></div><div style="color:{{ cardEstadoCol }}; font-size:16px; margin-top:8px; font-weight:700">{{ cardEstado }}</div></div>
+        <div style="color:rgba(255,255,255,.85); font-size:19px; letter-spacing:3px; font-weight:500; margin-top:18px">**** 0912</div>
+        <div style="margin-top:20px"><div style="color:rgba(255,255,255,.6); font-size:13px">Disponible</div><div style="color:#fff; font-size:24px; font-weight:700; margin-top:2px">{{ saldoText }}</div></div>
         <div style="position:absolute; right:20px; bottom:18px; display:flex"><span style="width:26px; height:26px; border-radius:50%; background:#EB001B; opacity:.85"></span><span style="width:26px; height:26px; border-radius:50%; background:#F79E1B; opacity:.85; margin-left:-12px"></span></div>
       </div>
-      <button id="tgt-card-clave" onClick="{{ crearClave }}" style="width:100%; background:#fff; border:1px solid #EBECEF; border-radius:14px; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu; margin-top:16px; box-shadow:0 4px 14px rgba(20,30,60,.06)"><span style="color:#15639E"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3v9"/><path d="M7.5 6.5a7 7 0 1 0 9 0"/></svg></span><span style="flex:1; text-align:left; font-size:16px; font-weight:500; color:#2b2b2b">{{ crearClaveLabel }}</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <div style="display:flex; gap:10px; margin-top:16px">
+        <button onClick="{{ mostrarDatos }}" style="flex:1; background:#fff; border:1px solid #EBECEF; border-radius:14px; padding:16px 6px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:8px; font-family:Ubuntu; box-shadow:0 4px 14px rgba(20,30,60,.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#243757" stroke-width="1.7"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span style="font-size:12.5px; color:#3a3a3a; text-align:center; line-height:1.2">Mostrar datos tarjeta</span></button>
+        <button onClick="{{ bloquearTarjeta }}" style="flex:1; background:#fff; border:1px solid #EBECEF; border-radius:14px; padding:16px 6px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:8px; font-family:Ubuntu; box-shadow:0 4px 14px rgba(20,30,60,.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#243757" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span style="font-size:12.5px; color:#3a3a3a; text-align:center; line-height:1.2">Bloquear tarjeta</span></button>
+        <button id="tgt-card-clave" onClick="{{ cambiarClave }}" style="flex:1; background:#fff; border:1px solid #EBECEF; border-radius:14px; padding:16px 6px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:8px; font-family:Ubuntu; box-shadow:0 4px 14px rgba(20,30,60,.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#243757" stroke-width="1.7"><rect x="2.5" y="6" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/></svg><span style="font-size:12.5px; color:#3a3a3a; text-align:center; line-height:1.2">Cambiar clave tarjeta</span></button>
+      </div>
+      <button onClick="{{ misSuscripciones }}" style="width:100%; background:#fff; border:1px solid #EBECEF; border-radius:14px; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu; margin-top:14px; box-shadow:0 4px 14px rgba(20,30,60,.06)"><span style="color:#15639E"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="15" height="13" rx="2"/><path d="M18 9h3v9a2 2 0 0 1-2 2H8"/><path d="M7 9h7M7 12h5"/></svg></span><span style="flex:1; text-align:left; font-size:15.5px; font-weight:500; color:#2b2b2b">Mis suscripciones</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      <button onClick="{{ configWallet }}" style="width:100%; background:#fff; border:1px solid #EBECEF; border-radius:14px; cursor:pointer; display:flex; align-items:center; gap:14px; padding:16px 18px; font-family:Ubuntu; margin-top:12px; box-shadow:0 4px 14px rgba(20,30,60,.06)"><span style="color:#243757"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10h18"/><rect x="14.5" y="12.5" width="4.5" height="3.2" rx="1"/></svg></span><span style="flex:1; text-align:left; font-size:15.5px; font-weight:500; color:#2b2b2b">Configurar tarjeta en Apple Wallet</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
   </sc-if>
@@ -802,6 +832,160 @@
         </div>
         <button onClick="{{ backHome }}" style="width:100%; height:52px; border-radius:26px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:18px">Volver al inicio</button>
       </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== DEPÓSITO A PLAZO (landing) ===================== -->
+  <sc-if value="{{ is.depositoPlazo }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backInversiones }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:16px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">DEPÓSITO A PLAZO</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:20px 18px; display:flex; align-items:center; gap:12px">
+        <div style="flex:1"><div style="font-size:20px; font-weight:700; color:#2b2b2b; line-height:1.25">Haz crecer tu dinero, invierte seguro</div><button onClick="{{ toDepositoSim }}" style="margin-top:16px; background:#E81E2C; color:#fff; border:none; border-radius:24px; padding:12px 32px; cursor:pointer; font-family:Ubuntu; font-size:16px; font-weight:700">Simular</button></div>
+        <div style="flex:none"><svg width="92" height="92" viewBox="0 0 96 96"><ellipse cx="48" cy="82" rx="34" ry="7" fill="#E8EDF0"/><path d="M40 82c-14 0-24-8-24-8s10-5 24-5 24 5 24 5-10 8-24 8z" fill="#F2C79A"/><path d="M48 70V42" stroke="#3E7D4F" stroke-width="3" stroke-linecap="round"/><path d="M48 52c-6-2-11-8-11-16 8 0 13 6 13 14z" fill="#4CA05F"/><path d="M48 46c5-2 9-7 9-14-7 0-11 5-11 12z" fill="#5CB56E"/><circle cx="34" cy="70" r="4" fill="#E8B04B"/><circle cx="60" cy="72" r="3.5" fill="#E8B04B"/><circle cx="47" cy="74" r="3" fill="#F2C15A"/></svg></div>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.06); padding:16px; margin-top:14px; display:flex; gap:11px; align-items:flex-start"><img src="assets/pia-avatar.png" style="width:34px; height:34px; border-radius:50%; flex:none"/><div style="font-size:13.5px; color:#3a3a3a; line-height:1.4"><b style="color:#E81E2C">PIA:</b> El Depósito a Plazo es la opción más segura para invertir: sabes tu ganancia desde el inicio. ¿Simulamos juntos?</div></div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== SIMULADOR DEPÓSITO A PLAZO ===================== -->
+  <sc-if value="{{ is.depositoSim }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ toDepositoPlazo }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:14.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">SIMULADOR DEPÓSITO A PLAZO</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:14px 16px 30px">
+      <div style="height:4px; background:#E6E8EB; border-radius:2px; overflow:hidden"><div style="width:20%; height:100%; background:#E81E2C"></div></div>
+      <div style="display:flex; justify-content:space-between; margin:8px 0 16px"><span style="font-size:13.5px; color:#5a5e66">1. Simulación</span><span style="font-size:13.5px; color:#9aa0a8">1/5</span></div>
+      <div style="display:flex; gap:12px; margin-bottom:16px">
+        <button onClick="{{ setDpRenovable }}" style="flex:1; height:46px; border-radius:23px; border:none; cursor:pointer; font-family:Ubuntu; font-size:15px; font-weight:700; background:{{ dpRenBg }}; color:{{ dpRenFg }}">Renovable</button>
+        <button onClick="{{ setDpFijo }}" style="flex:1; height:46px; border-radius:23px; border:none; cursor:pointer; font-family:Ubuntu; font-size:15px; font-weight:700; background:{{ dpFijoBg }}; color:{{ dpFijoFg }}">Fijo</button>
+      </div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.06); overflow:hidden; margin-bottom:18px">
+        <div style="font-size:16px; font-weight:700; color:#2b2b2b; padding:15px 16px; border-bottom:1px solid #EEF0F2">Acerca del retiro</div>
+        <div style="font-size:14px; color:#5a5e66; padding:14px 16px; line-height:1.5">Cuando se cumpla el plazo que definas, <b style="color:#2b2b2b">tendrás 3 días hábiles para retirar tu depósito.</b> De no ser así, Coopeuch lo renovará de forma automática.</div>
+      </div>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Monto a invertir</div>
+      <input value="{{ dpMontoView }}" onInput="{{ onDpMonto }}" inputmode="numeric" placeholder="$ Ingresa monto" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:18px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; background:#fff"/>
+      <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Desde $1.000 para Renovable</div>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin:18px 0 8px">Plazo</div>
+      <input value="{{ dpPlazo }}" onInput="{{ onDpPlazo }}" inputmode="numeric" placeholder="ej: 7" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:16px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; background:#fff"/>
+      <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Desde 7 días hasta 900</div>
+      <button onClick="{{ doDepositoSim }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ dpSimBtnBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Simular</button>
+      <sc-if value="{{ dpResultOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:18px 16px; margin-top:18px">
+        <div style="font-size:15px; color:#5a5e66; text-align:center">Recibirás al final del plazo</div>
+        <div style="font-size:30px; font-weight:700; color:#243757; text-align:center; margin-top:4px">{{ dpTotalText }}</div>
+        <div style="margin-top:14px; padding-top:12px; border-top:1px solid #EEF0F2">
+          <div style="display:flex; justify-content:space-between; padding:5px 0"><span style="font-size:14px; color:#5a5e66">Capital invertido</span><span style="font-size:14px; font-weight:700; color:#2b2b2b">{{ dpCapitalText }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0"><span style="font-size:14px; color:#5a5e66">Ganancia estimada</span><span style="font-size:14px; font-weight:700; color:#34A853">{{ dpGananciaText }}</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0"><span style="font-size:14px; color:#5a5e66">Plazo</span><span style="font-size:14px; font-weight:700; color:#2b2b2b">{{ dpPlazo }} días</span></div>
+        </div>
+        <div style="font-size:12px; color:#9aa0a8; margin-top:10px; line-height:1.4">Simulación referencial no vinculante. La tasa final se confirma al momento de contratar.</div>
+      </div>
+      </sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== INVERSIONES · ¡QUEREMOS CONOCERTE! ===================== -->
+  <sc-if value="{{ is.invOnboarding }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backInversiones }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:16px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">INVERSIONES</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:26px 22px; text-align:center">
+        <div style="width:120px; height:120px; border-radius:50%; background:#DCEFF8; margin:0 auto; display:flex; align-items:center; justify-content:center; position:relative"><svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#2E6C99" stroke-width="1.4"><circle cx="12" cy="8" r="3.5"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg><span style="position:absolute; top:14px; right:20px; width:22px; height:22px; border-radius:50%; background:#1B4E73; color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center">i</span></div>
+        <div style="font-size:21px; font-weight:700; color:#2b2b2b; margin-top:18px">¡Queremos conocerte!</div>
+        <div style="font-size:15px; color:#5a5e66; margin-top:12px; line-height:1.5">Para comenzar necesitamos saber sobre ti. Te pediremos algunos datos y documentos, los cuales nos ayudarán a confirmar tu identidad.</div>
+        <button onClick="{{ invEmpezar }}" style="width:100%; height:54px; border-radius:12px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:24px">Empezar</button>
+        <div style="margin-top:18px"><span onClick="{{ backInversiones }}" style="color:#E81E2C; font-size:16px; font-weight:700; text-decoration:underline; cursor:pointer">Cancelar</span></div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== AHORRANDO ===================== -->
+  <sc-if value="{{ is.ahorrando }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backAhorros }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:16px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">AHORRANDO</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px">
+        <div style="font-size:15px; color:#5a5e66">Ahorro acumulado</div>
+        <div style="font-size:30px; font-weight:700; color:#243757; margin-top:2px">$0</div>
+        <div style="font-size:13.5px; color:#9aa0a8; margin-top:2px">Monto acumulado en todas tus metas activas.</div>
+        <div style="display:flex; gap:10px; align-items:flex-start; background:#EAF4FB; border-radius:10px; padding:12px 14px; margin-top:14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1B7FB8" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="10"/><path d="M11 10h2v7h-2zM11 6h2v2h-2z" fill="#fff"/></svg><div style="font-size:12.5px; color:#15639E; line-height:1.45"><b>El monto acumulado en Ahorrando podría no reflejar el saldo actual de tu cuenta de ahorro</b>, debido a que no considera los movimientos (abonos y retiros) que hayas realizado fuera de la funcionalidad Ahorrando. Para verificar el saldo real, ingresa a la sección cuentas de ahorro.</div></div>
+      </div>
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px; margin-top:14px"><div style="font-size:24px; font-weight:700; color:#243757">$0</div><div style="font-size:13.5px; color:#9aa0a8; margin-top:2px">Monto ahorrado en Junio</div></div>
+      <div style="background:#EEECFB; border-radius:16px; padding:15px 16px; margin-top:14px; display:flex; gap:12px; align-items:center"><div style="width:44px; height:44px; border-radius:50%; background:#fff; padding:2px; flex:none; box-shadow:0 2px 6px rgba(0,0,0,.12)"><img src="assets/pia-avatar.png" style="width:100%; height:100%; border-radius:50%; display:block; object-fit:cover"/></div><div style="flex:1"><div style="font-size:14.5px; font-weight:700; color:#2b2b2b">¡Ya estás acá, comencemos!</div><div style="font-size:13px; color:#5a5e66; margin-top:2px; line-height:1.35"><b style="color:#7A3EA8">PIA:</b> Te recomiendo crear tu primera meta de ahorro, configurándola como más te acomode.</div></div></div>
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px; margin-top:14px">
+        <div style="display:flex; justify-content:space-between; align-items:center"><span style="font-size:17px; font-weight:700; color:#2b2b2b">Mis metas</span><button onClick="{{ toCrearMeta }}" style="background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:6px; color:#E81E2C; font-family:Ubuntu; font-size:15px; font-weight:700"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Nueva meta</button></div>
+        <div style="text-align:center; padding:24px 10px 6px">
+          <svg width="90" height="90" viewBox="0 0 96 96"><circle cx="48" cy="48" r="40" fill="#E8EDF2"/><circle cx="48" cy="40" r="12" fill="#B9C4CE"/><path d="M28 76c0-11 9-20 20-20s20 9 20 20z" fill="#B9C4CE"/><circle cx="60" cy="34" r="7" fill="none" stroke="#9AA6B2" stroke-width="2.5"/><circle cx="72" cy="34" r="7" fill="none" stroke="#9AA6B2" stroke-width="2.5"/><path d="M67 34h-2" stroke="#9AA6B2" stroke-width="2.5"/></svg>
+          <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-top:12px">Aún no tienes metas ni ahorros</div>
+          <div style="font-size:13.5px; color:#7b7f86; margin-top:6px; line-height:1.4">Crea una meta y podrás ahorrar de forma automática y personalizada.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== CREAR UNA META ===================== -->
+  <sc-if value="{{ is.crearMeta }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ toAhorrando }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:16px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">CREAR UNA META</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px">
+        <div style="font-size:19px; font-weight:700; color:#2b2b2b; margin-bottom:16px">¿Cuál es tu meta?</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+          <sc-for list="{{ metaGoals }}" as="g" hint-placeholder-count="9">
+            <button onClick="{{ g.on }}" style="background:#fff; border:1.5px solid #E6E8EB; border-radius:14px; padding:20px 6px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:9px; font-family:Ubuntu"><span style="font-size:30px">{{ g.ic }}</span><span style="font-size:15px; font-weight:700; color:#2b2b2b">{{ g.label }}</span></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== AHORROS PROGRAMADOS (vacío) ===================== -->
+  <sc-if value="{{ is.ahorroProgramado }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ toCuentaAhorro }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">AHORROS PROGRAMADOS</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px; display:flex; flex-direction:column; align-items:center; justify-content:center">
+      <svg width="150" height="150" viewBox="0 0 96 96"><circle cx="48" cy="48" r="40" fill="#E8EDF2"/><circle cx="48" cy="40" r="11" fill="#B9C4CE"/><path d="M30 74c0-10 8-18 18-18s18 8 18 18z" fill="#B9C4CE"/><rect x="40" y="40" width="16" height="20" rx="2" fill="#fff" stroke="#9AA6B2" stroke-width="2"/><path d="M40 46l8 5 8-5" fill="none" stroke="#9AA6B2" stroke-width="2"/></svg>
+      <div style="font-size:19px; font-weight:700; color:#2b2b2b; margin-top:20px; text-align:center; line-height:1.3">Aún no tienes un Ahorro programado creado</div>
+      <div style="font-size:15px; color:#7b7f86; margin-top:10px; text-align:center; line-height:1.4">¡Te invitamos a crear uno y comenzar a Ahorrar!</div>
+      <button onClick="{{ toCrearAhorroProg }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:36px">Crear Ahorro programado</button>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== CREAR AHORRO PROGRAMADO ===================== -->
+  <sc-if value="{{ is.crearAhorroProg }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ toAhorroProgramado }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:14.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">CREAR AHORRO PROGRAMADO</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px">
+        <div style="font-size:18px; font-weight:700; color:#2b2b2b">Configura tu Ahorro</div>
+        <div style="font-size:14px; color:#5a5e66; margin-top:8px; line-height:1.45; padding-bottom:14px; border-bottom:1px solid #EEF0F2">Programa transferencias automáticas desde tu Cuenta Vista Coopeuch a tu Cuenta de Ahorro.</div>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:14px 0 6px">Cuenta de origen</div>
+        <div style="background:#F6F7F9; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between"><div><div style="font-size:15px; font-weight:700; color:#2b2b2b">Cuenta Vista Coopeuch</div><div style="font-size:13px; color:#9aa0a8; margin-top:2px">N° 012232334</div></div><div style="width:44px; height:29px; border-radius:5px; background:linear-gradient(135deg,#E81E2C,#B00D18)"></div></div>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:16px 0 6px">Nombre del ahorro</div>
+        <input value="{{ apNombre }}" onInput="{{ onApNombre }}" placeholder="Ingrese nombre" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:16px 0 6px">Monto a transferir</div>
+        <input value="{{ apMontoView }}" onInput="{{ onApMonto }}" inputmode="numeric" placeholder="Ingrese monto" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:16px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none"/>
+        <div style="font-size:13px; color:#9aa0a8; margin-top:6px">El monto mínimo es $1.000</div>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:16px 0 6px">Día en que se realizará la transferencia</div>
+        <input value="{{ apDia }}" onInput="{{ onApDia }}" inputmode="numeric" placeholder="Selecciona el día (1 al 28)" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <div style="font-size:13px; color:#9aa0a8; margin-top:6px">El abono de la transferencia es mensual</div>
+      </div>
+      <button onClick="{{ apContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ apContBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Continuar</button>
     </div>
   </div>
   </sc-if>
@@ -1180,7 +1364,9 @@ class Component extends DCLogic {
     metaActual:380000, metaObjetivo:500000,
     // hipotecario + tarjeta
     hipoValor:'3000', hipoPie:'20', hipoPlazo:'25', hipoSim:null,
-    cardActiva:false, cardClaveSet:false,
+    cardActiva:false, cardClaveSet:false, cuotaInfoOpen:false,
+    dpTab:'renovable', dpMonto:'', dpPlazo:'', dpSim:null,
+    apNombre:'', apMonto:'', apDia:'',
   };
 
   componentDidMount(){ this._fit=()=>{ const w=document.getElementById('deviceWrap'); if(!w) return; const sc=document.getElementById('screen'); const mobile=window.innerWidth<=560; if(mobile){ w.classList.add('fs'); w.style.width='100vw'; w.style.height='100vh'; w.style.padding='0'; w.style.borderRadius='0'; w.style.boxShadow='none'; w.style.transform='none'; if(sc){ sc.style.inset='0'; sc.style.borderRadius='0'; } } else { w.classList.remove('fs'); w.style.width='390px'; w.style.height='844px'; w.style.padding='5px'; w.style.borderRadius='54px'; w.style.boxShadow='0 30px 70px rgba(0,0,0,.45), inset 0 0 0 2px #2a2b2e'; if(sc){ sc.style.inset='5px'; sc.style.borderRadius='49px'; } const s=Math.min((window.innerHeight-24)/844,(window.innerWidth-20)/390,1.1); w.style.transform='scale('+s+')'; } }; this._fit(); window.addEventListener('resize',this._fit); }
@@ -1569,7 +1755,7 @@ class Component extends DCLogic {
 
     const lia=(label,icon,on)=>({label,icon:this.ic(icon),on});
     return {
-      is:{ login:st.screen==='login', faceid:st.screen==='faceid', faceDone:st.screen==='faceDone', home:st.screen==='home', creditos:st.screen==='creditos', creditoSim:st.screen==='credito-sim', creditoResult:st.screen==='credito-result', creditoInfo:st.screen==='credito-info', creditoComp:st.screen==='credito-comprobante', hipotecario:st.screen==='hipotecario', condiciones:st.screen==='condiciones', ahorros:st.screen==='ahorros', cuentaAhorro:st.screen==='cuenta-ahorro', inversiones:st.screen==='inversiones', tarjetas:st.screen==='tarjetas', actualizacion:st.screen==='actualizacion', movimientos:st.screen==='movimientos', transferir:st.screen==='transferir', transferAdd:st.screen==='transfer-add', transferMonto:st.screen==='transfer-monto', transferAuth:st.screen==='transfer-auth', transferProdMonto:st.screen==='transfer-prod-monto', transferProdConfirm:st.screen==='transfer-prod-confirm', transferDoneScreen:st.screen==='transfer-done', pagar:st.screen==='pagar', cuotaPart:st.screen==='cuota-participacion' },
+      is:{ login:st.screen==='login', faceid:st.screen==='faceid', faceDone:st.screen==='faceDone', home:st.screen==='home', creditos:st.screen==='creditos', creditoSim:st.screen==='credito-sim', creditoResult:st.screen==='credito-result', creditoInfo:st.screen==='credito-info', creditoComp:st.screen==='credito-comprobante', hipotecario:st.screen==='hipotecario', condiciones:st.screen==='condiciones', ahorros:st.screen==='ahorros', cuentaAhorro:st.screen==='cuenta-ahorro', inversiones:st.screen==='inversiones', tarjetas:st.screen==='tarjetas', actualizacion:st.screen==='actualizacion', movimientos:st.screen==='movimientos', transferir:st.screen==='transferir', transferAdd:st.screen==='transfer-add', transferMonto:st.screen==='transfer-monto', transferAuth:st.screen==='transfer-auth', transferProdMonto:st.screen==='transfer-prod-monto', transferProdConfirm:st.screen==='transfer-prod-confirm', transferDoneScreen:st.screen==='transfer-done', pagar:st.screen==='pagar', cuotaPart:st.screen==='cuota-participacion', depositoPlazo:st.screen==='deposito-plazo', depositoSim:st.screen==='deposito-sim', invOnboarding:st.screen==='inv-onboarding', ahorrando:st.screen==='ahorrando', crearMeta:st.screen==='crear-meta', ahorroProgramado:st.screen==='ahorro-programado', crearAhorroProg:st.screen==='crear-ahorro-programado' },
       // login
       clave:st.clave, claveType:st.showClave?'text':'password',
       onClave:(e)=>this.setState({clave:e.target.value}),
@@ -1648,11 +1834,42 @@ class Component extends DCLogic {
       backAhorros:()=>this.go('ahorros','ahorros'),
       backInversiones:()=>this.go('inversiones','inversiones'),
       toCuentaAhorro:()=>this.go('cuenta-ahorro'),
-      toAhorrando:()=>this.openPia('ahorro'),
+      toAhorrando:()=>this.go('ahorrando'),
+      toCrearMeta:()=>this.go('crear-meta'),
+      metaGoals:[{ic:'✈️',label:'Viaje'},{ic:'🏠',label:'Casa'},{ic:'🚗',label:'Vehículo'},{ic:'📚',label:'Educación'},{ic:'🛍️',label:'Compras'},{ic:'📄',label:'Deudas'},{ic:'🏥',label:'Salud'},{ic:'🐷',label:'Solo Ahorrar'},{ic:'👴',label:'Mi Jubilación'}].map(g=>({ic:g.ic,label:g.label,on:()=>{ this.toast('Configuremos tu meta: '+g.label+'. PIA te acompaña. 💚'); this.go('ahorrando'); }})),
+      toAhorroProgramado:()=>this.go('ahorro-programado'),
+      toCrearAhorroProg:()=>{ this.setState({apNombre:'',apMonto:'',apDia:''}); this.go('crear-ahorro-programado'); },
+      apNombre:st.apNombre, onApNombre:(e)=>this.setState({apNombre:e.target.value}),
+      apMontoView: st.apMonto?('$'+this.fmt(st.apMonto)):'', onApMonto:(e)=>this.setState({apMonto:e.target.value.replace(/\D/g,'').slice(0,9)}),
+      apDia:st.apDia, onApDia:(e)=>this.setState({apDia:e.target.value.replace(/\D/g,'').slice(0,2)}),
+      apContBg: (st.apNombre.trim()&&((parseInt(st.apMonto||'0',10)||0)>=1000)&&st.apDia)?'#E81E2C':'#C9CACE',
+      apContinuar:()=>{ if(!(st.apNombre.trim()&&((parseInt(st.apMonto||'0',10)||0)>=1000)&&st.apDia)){ this.toast('Completa los datos del ahorro (monto mínimo $1.000)'); return; } this.toast('¡Ahorro programado creado! 🎉 Se abonará cada mes.'); this.go('cuenta-ahorro'); },
       toCuotaParticipacion:()=>this.go('cuota-participacion'),
       cuotaPart:st.cuotaPart,
       crearClave:()=>{ if(st.cardActiva){ this.toast('Tu tarjeta ya está activa ✓'); return; } this.setState({cardActiva:true, cardClaveSet:true}); this.toast('¡Clave creada! Tu tarjeta quedó activa. 💳'); this.endGuided(); },
       cardEstado: st.cardActiva?'Activa':'Inactiva', cardEstadoCol: st.cardActiva?'#7CFFB0':'#fff', crearClaveLabel: st.cardActiva?'Tarjeta activada ✓':'Crear clave y activar',
+      mostrarDatos:()=>this.toast('Mostrando los datos de tu tarjeta de forma segura…'),
+      bloquearTarjeta:()=>this.toast('Abriendo el bloqueo de tarjeta…'),
+      cambiarClave:()=>this.toast('Vamos a cambiar la clave de tu tarjeta…'),
+      misSuscripciones:()=>this.toast('Próximamente: tus suscripciones asociadas a la tarjeta'),
+      configWallet:()=>this.toast('Configurando tu tarjeta en Apple Wallet…'),
+      pagoAutomatico:()=>this.toast('Activar Pago Automático de tu cuota de participación'),
+      historialPago:()=>this.toast('Abriendo tu historial de pagos…'),
+      cuotaInfoOpen:st.cuotaInfoOpen, toggleCuotaInfo:()=>this.setState({cuotaInfoOpen:!st.cuotaInfoOpen}), cuotaInfoChevron: st.cuotaInfoOpen?'rotate(180deg)':'rotate(0deg)',
+      // depósito a plazo / inversiones
+      toDepositoPlazo:()=>this.go('deposito-plazo'),
+      toDepositoSim:()=>{ this.setState({dpSim:null}); this.go('deposito-sim'); },
+      toInvOnboarding:()=>this.go('inv-onboarding'),
+      invEmpezar:()=>{ this.toast('¡Genial! Un ejecutivo te acompañará a completar tu registro. 💚'); this.go('inversiones','inversiones'); },
+      setDpRenovable:()=>this.setState({dpTab:'renovable'}), setDpFijo:()=>this.setState({dpTab:'fijo'}),
+      dpRenBg: st.dpTab==='renovable'?'#1B7FB8':'#DCEFF8', dpRenFg: st.dpTab==='renovable'?'#fff':'#1483C2',
+      dpFijoBg: st.dpTab==='fijo'?'#1B7FB8':'#DCEFF8', dpFijoFg: st.dpTab==='fijo'?'#fff':'#1483C2',
+      dpMontoView: st.dpMonto?('$'+this.fmt(st.dpMonto)):'', onDpMonto:(e)=>this.setState({dpMonto:e.target.value.replace(/\D/g,'').slice(0,9)}),
+      dpPlazo:st.dpPlazo, onDpPlazo:(e)=>this.setState({dpPlazo:e.target.value.replace(/\D/g,'').slice(0,3)}),
+      dpSimBtnBg: (((parseInt(st.dpMonto||'0',10)||0)>=1000)&&((parseInt(st.dpPlazo||'0',10)||0)>=7))?'#E81E2C':'#C9CACE',
+      doDepositoSim:()=>{ const m=parseInt(st.dpMonto||'0',10)||0, d=parseInt(st.dpPlazo||'0',10)||0; if(m<1000){ this.toast('El monto mínimo es $1.000'); return; } if(d<7||d>900){ this.toast('El plazo va de 7 a 900 días'); return; } const g=Math.round(m*0.00042*d); this.setState({dpSim:{cap:m,gan:g,total:m+g,dias:d}}); },
+      dpResultOpen: !!st.dpSim,
+      dpCapitalText: this.peso(st.dpSim?st.dpSim.cap:0), dpGananciaText: '+'+this.peso(st.dpSim?st.dpSim.gan:0), dpTotalText: this.peso(st.dpSim?st.dpSim.total:0),
       autorizar:()=>{ this.toast('¡Autorización registrada! Revisaremos tus cotizaciones.'); this.go('creditos','creditos'); },
       ahorroSaldo:this.peso(st.metaActual),
       metaPct:Math.round(st.metaActual/st.metaObjetivo*100),
