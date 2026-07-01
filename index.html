@@ -868,12 +868,11 @@
         <div style="font-size:14px; color:#5a5e66; padding:14px 16px; line-height:1.5">Cuando se cumpla el plazo que definas, <b style="color:#2b2b2b">tendrás 3 días hábiles para retirar tu depósito.</b> De no ser así, Coopeuch lo renovará de forma automática.</div>
       </div>
       <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Monto a invertir</div>
-      <input value="{{ dpMontoView }}" onInput="{{ onDpMonto }}" inputmode="numeric" placeholder="$ Ingresa monto" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:18px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; background:#fff"/>
       <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Desde $1.000 para Renovable</div>
       <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin:18px 0 8px">Plazo</div>
-      <input value="{{ dpPlazo }}" onInput="{{ onDpPlazo }}" inputmode="numeric" placeholder="ej: 7" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:16px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; background:#fff"/>
+      <input id="tgt-dp-plazo" value="{{ dpPlazo }}" onInput="{{ onDpPlazo }}" inputmode="numeric" placeholder="ej: 7" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:16px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; background:#fff"/>
       <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Desde 7 días hasta 900</div>
-      <button onClick="{{ doDepositoSim }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ dpSimBtnBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Simular</button>
+      <button id="tgt-dp-simular" onClick="{{ doDepositoSim }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ dpSimBtnBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Simular</button>
       <sc-if value="{{ dpResultOpen }}" hint-placeholder-val="{{ false }}">
       <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:18px 16px; margin-top:18px">
         <div style="font-size:15px; color:#5a5e66; text-align:center">Recibirás al final del plazo</div>
@@ -922,7 +921,7 @@
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px; margin-top:14px"><div style="font-size:24px; font-weight:700; color:#243757">$0</div><div style="font-size:13.5px; color:#9aa0a8; margin-top:2px">Monto ahorrado en Junio</div></div>
       <div style="background:#EEECFB; border-radius:16px; padding:15px 16px; margin-top:14px; display:flex; gap:12px; align-items:center"><div style="width:44px; height:44px; border-radius:50%; background:#fff; padding:2px; flex:none; box-shadow:0 2px 6px rgba(0,0,0,.12)"><img src="assets/pia-avatar.png" style="width:100%; height:100%; border-radius:50%; display:block; object-fit:cover"/></div><div style="flex:1"><div style="font-size:14.5px; font-weight:700; color:#2b2b2b">¡Ya estás acá, comencemos!</div><div style="font-size:13px; color:#5a5e66; margin-top:2px; line-height:1.35"><b style="color:#7A3EA8">PIA:</b> Te recomiendo crear tu primera meta de ahorro, configurándola como más te acomode.</div></div></div>
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px; margin-top:14px">
-        <div style="display:flex; justify-content:space-between; align-items:center"><span style="font-size:17px; font-weight:700; color:#2b2b2b">Mis metas</span><button onClick="{{ toCrearMeta }}" style="background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:6px; color:#E81E2C; font-family:Ubuntu; font-size:15px; font-weight:700"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Nueva meta</button></div>
+        <div style="display:flex; justify-content:space-between; align-items:center"><span style="font-size:17px; font-weight:700; color:#2b2b2b">Mis metas</span><button id="tgt-ah-nueva" onClick="{{ toCrearMeta }}" style="background:none; border:none; cursor:pointer; display:flex; align-items:center; gap:6px; color:#E81E2C; font-family:Ubuntu; font-size:15px; font-weight:700"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>Nueva meta</button></div>
         <div style="text-align:center; padding:24px 10px 6px">
           <svg width="90" height="90" viewBox="0 0 96 96"><circle cx="48" cy="48" r="40" fill="#E8EDF2"/><circle cx="48" cy="40" r="12" fill="#B9C4CE"/><path d="M28 76c0-11 9-20 20-20s20 9 20 20z" fill="#B9C4CE"/><circle cx="60" cy="34" r="7" fill="none" stroke="#9AA6B2" stroke-width="2.5"/><circle cx="72" cy="34" r="7" fill="none" stroke="#9AA6B2" stroke-width="2.5"/><path d="M67 34h-2" stroke="#9AA6B2" stroke-width="2.5"/></svg>
           <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-top:12px">Aún no tienes metas ni ahorros</div>
@@ -941,7 +940,7 @@
     <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px">
         <div style="font-size:19px; font-weight:700; color:#2b2b2b; margin-bottom:16px">¿Cuál es tu meta?</div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+        <div id="tgt-meta-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
           <sc-for list="{{ metaGoals }}" as="g" hint-placeholder-count="9">
             <button onClick="{{ g.on }}" style="background:#fff; border:1.5px solid #E6E8EB; border-radius:14px; padding:20px 6px; cursor:pointer; display:flex; flex-direction:column; align-items:center; gap:9px; font-family:Ubuntu"><span style="font-size:30px">{{ g.ic }}</span><span style="font-size:15px; font-weight:700; color:#2b2b2b">{{ g.label }}</span></button>
           </sc-for>
@@ -971,21 +970,22 @@
     <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
     <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ toAhorroProgramado }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:14.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">CREAR AHORRO PROGRAMADO</div><div style="width:34px"></div></div>
     <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#EEF2FB; border-radius:14px; padding:14px 15px; margin-bottom:14px; display:flex; gap:11px; align-items:center"><img src="assets/pia-avatar.png" style="width:36px; height:36px; border-radius:50%; flex:none"/><div style="font-size:13px; color:#3a3a3a; line-height:1.4"><b style="color:#E81E2C">PIA:</b> El ahorro programado transfiere solo cada mes a tu Cuenta de Ahorro. Empieza con poco (desde $1.000) y yo te guío paso a paso. 💚</div></div>
       <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px">
         <div style="font-size:18px; font-weight:700; color:#2b2b2b">Configura tu Ahorro</div>
         <div style="font-size:14px; color:#5a5e66; margin-top:8px; line-height:1.45; padding-bottom:14px; border-bottom:1px solid #EEF0F2">Programa transferencias automáticas desde tu Cuenta Vista Coopeuch a tu Cuenta de Ahorro.</div>
         <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:14px 0 6px">Cuenta de origen</div>
         <div style="background:#F6F7F9; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between"><div><div style="font-size:15px; font-weight:700; color:#2b2b2b">Cuenta Vista Coopeuch</div><div style="font-size:13px; color:#9aa0a8; margin-top:2px">N° 012232334</div></div><div style="width:44px; height:29px; border-radius:5px; background:linear-gradient(135deg,#E81E2C,#B00D18)"></div></div>
         <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:16px 0 6px">Nombre del ahorro</div>
-        <input value="{{ apNombre }}" onInput="{{ onApNombre }}" placeholder="Ingrese nombre" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <input id="tgt-ap-nombre" value="{{ apNombre }}" onInput="{{ onApNombre }}" placeholder="Ingrese nombre" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
         <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:16px 0 6px">Monto a transferir</div>
-        <input value="{{ apMontoView }}" onInput="{{ onApMonto }}" inputmode="numeric" placeholder="Ingrese monto" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:16px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none"/>
+        <input id="tgt-ap-monto" value="{{ apMontoView }}" onInput="{{ onApMonto }}" inputmode="numeric" placeholder="Ingrese monto" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:16px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none"/>
         <div style="font-size:13px; color:#9aa0a8; margin-top:6px">El monto mínimo es $1.000</div>
         <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin:16px 0 6px">Día en que se realizará la transferencia</div>
-        <input value="{{ apDia }}" onInput="{{ onApDia }}" inputmode="numeric" placeholder="Selecciona el día (1 al 28)" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <input id="tgt-ap-dia" value="{{ apDia }}" onInput="{{ onApDia }}" inputmode="numeric" placeholder="Selecciona el día (1 al 28)" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
         <div style="font-size:13px; color:#9aa0a8; margin-top:6px">El abono de la transferencia es mensual</div>
       </div>
-      <button onClick="{{ apContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ apContBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Continuar</button>
+      <button id="tgt-ap-cont" onClick="{{ apContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ apContBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Continuar</button>
     </div>
   </div>
   </sc-if>
@@ -1438,6 +1438,24 @@ class Component extends DCLogic {
 
   // ---------- motor de acompañamiento guiado: 3 modos ----------
   gfSteps(flow){
+    if(flow==='tarjetas') return [
+      {key:'clave', screen:'tarjetas', target:'tgt-card-clave', manual:false, tip:'Toca "Cambiar clave tarjeta" para actualizar tu clave. Tú confirmas. 💳', tipT:'Toca "Cambiar clave tarjeta". Tú confirmas. 💳', side:'top'},
+    ];
+    if(flow==='ahorro') return [
+      {key:'nueva', screen:'ahorrando', target:'tgt-ah-nueva', manual:false, tip:'Toca "Nueva meta" para crear tu primera meta de ahorro.', tipT:'Paso 1 de 2 · Toca "Nueva meta".', side:'bottom'},
+      {key:'pick', screen:'crear-meta', target:'tgt-meta-grid', manual:false, tip:'Elige el tipo de meta que quieres lograr. Toca una opción. 💚', tipT:'Paso 2 de 2 · Elige tu meta; tú decides cuál. 💚', side:'top'},
+    ];
+    if(flow==='inversion'||flow==='deposito') return [
+      {key:'monto', screen:'deposito-sim', target:'tgt-dp-monto', manual:true, tip:'Escribe el monto a invertir (desde $1.000) y toca Siguiente.', tipT:'Paso 1 de 3 · Monto a invertir (desde $1.000). Toca Siguiente.', side:'bottom'},
+      {key:'plazo', screen:'deposito-sim', target:'tgt-dp-plazo', manual:true, tip:'Indica el plazo en días (7 a 900) y toca Siguiente.', tipT:'Paso 2 de 3 · Plazo en días (7 a 900).', side:'bottom'},
+      {key:'simular', screen:'deposito-sim', target:'tgt-dp-simular', manual:false, tip:'Toca "Simular" para ver tu ganancia estimada. 💚', tipT:'Paso 3 de 3 · Toca "Simular" para ver tu ganancia. 💚', side:'top'},
+    ];
+    if(flow==='ahorroprog') return [
+      {key:'nombre', screen:'crear-ahorro-programado', target:'tgt-ap-nombre', manual:true, tip:'Escribe un nombre para tu ahorro (ej: Vacaciones) y toca Siguiente.', tipT:'Paso 1 de 4 · Nombra tu ahorro y toca Siguiente.', side:'bottom'},
+      {key:'monto', screen:'crear-ahorro-programado', target:'tgt-ap-monto', manual:true, tip:'Indica el monto mensual (mínimo $1.000) y toca Siguiente.', tipT:'Paso 2 de 4 · Monto mensual (mínimo $1.000).', side:'bottom'},
+      {key:'dia', screen:'crear-ahorro-programado', target:'tgt-ap-dia', manual:true, tip:'Escribe el día del mes (1 al 28) y toca Siguiente.', tipT:'Paso 3 de 4 · Día del mes (1 al 28).', side:'bottom'},
+      {key:'crear', screen:'crear-ahorro-programado', target:'tgt-ap-cont', manual:false, tip:'Toca "Continuar" para crear tu ahorro programado. Tú confirmas. ✅', tipT:'Paso 4 de 4 · Toca "Continuar". Tú confirmas. ✅', side:'top'},
+    ];
     if(flow==='transfer') return [
       {key:'home',      screen:'home',           tab:'inicio', target:'tgt-home-transfer',   manual:false, tip:'Toca el botón rojo "Transferir" para comenzar.', tipT:'Paso 1 de 5 · Toca el botón rojo "Transferir".', side:'bottom'},
       {key:'dest',      screen:'transferir',                   target:'tgt-ter-dest',        manual:false, tip:'Toca a "Juan Rivera Soto", el destinatario al que quieres transferir.', tipT:'Paso 2 de 5 · Elige a quién transferir: toca el destinatario.', side:'bottom'},
@@ -1484,6 +1502,11 @@ class Component extends DCLogic {
     ahorro:{screen:'cuenta-ahorro', tab:null, autoMsg:'Aqu\u00ed est\u00e1 tu meta de ahorro. Toca el bot\u00f3n de PIA y te muestro c\u00f3mo llegar antes. \ud83d\ude80', fill:{}, reset:{}},
     inversion:{screen:'inversiones', tab:'inversiones', autoMsg:'Estos son tus productos de inversi\u00f3n. Te recomiendo partir por el Dep\u00f3sito a Plazo: t\u00f3calo para ver el detalle. \ud83d\udc9a', fill:{}, reset:{}},
     aporte:{screen:'cuota-participacion', tab:null, autoMsg:'Te llev\u00e9 a tu cuota de participaci\u00f3n. Toca \"Aumentar mi cuota con Pia\" y confirmas t\u00fa. \ud83e\udd1d', fill:{}, reset:{}},
+    tarjetas:{screen:'tarjetas', tab:'tarjetas', autoMsg:'Te llevé a tus Tarjetas. Toca "Cambiar clave tarjeta" para actualizar tu clave. 💳', fill:{}, reset:{}},
+    ahorro:{screen:'ahorrando', tab:null, autoMsg:'Te dejé directo en el selector de metas. Elige la tuya; esa decisión siempre es tuya. 👍', fill:{}, reset:{}},
+    inversion:{screen:'deposito-sim', tab:null, autoMsg:'Listo: cargué $100.000 a 90 días en tu Depósito a Plazo. Revisa y toca "Simular". 👍', fill:{dpMonto:'100000',dpPlazo:'90',dpSim:null}, reset:{dpSim:null}},
+    deposito:{screen:'deposito-sim', tab:null, autoMsg:'Listo: cargué $100.000 a 90 días. Revisa y toca "Simular" para ver tu ganancia. 👍', fill:{dpMonto:'100000',dpPlazo:'90',dpSim:null}, reset:{dpSim:null}},
+    ahorroprog:{screen:'crear-ahorro-programado', tab:null, autoMsg:'Te preparé un ahorro: "Vacaciones", $20.000 el día 5 de cada mes. Revisa y toca "Continuar". 👍', fill:{apNombre:'Vacaciones',apMonto:'20000',apDia:'5'}, reset:{apNombre:'',apMonto:'',apDia:''}},
   }; return c[flow]||{screen:'home',tab:'inicio',autoMsg:'Lo dej\u00e9 listo. T\u00fa confirmas. \ud83d\udc4d',fill:{},reset:{}}; }
   async flowModes(flow){
     const intros={hipotecario:'Te acompa\u00f1o a simular tu Cr\u00e9dito Hipotecario. \u00bfC\u00f3mo prefieres?',pagar:'Te acompa\u00f1o a pagar tus cuentas del mes. \u00bfC\u00f3mo prefieres?',tarjetas:'Te acompa\u00f1o a activar tu tarjeta. \u00bfC\u00f3mo prefieres?',ahorro:'Te acompa\u00f1o con tu meta de ahorro. \u00bfC\u00f3mo prefieres?',inversion:'Te acompa\u00f1o a invertir. \u00bfC\u00f3mo prefieres?',aporte:'Te acompa\u00f1o a aumentar tu cuota de participaci\u00f3n. \u00bfC\u00f3mo prefieres?'};
@@ -1504,7 +1527,7 @@ class Component extends DCLogic {
     this.setState(mode==='auto' ? Object.assign({},cf.fill) : Object.assign({},cf.reset));
     const idx = (mode==='auto') ? (steps.length-1) : 0;
     this.setState({gf:{flow,mode,i:idx}, spot:null, guide:null});
-    setTimeout(()=>{ this.closePia(); this.go(cf.screen, cf.tab); setTimeout(()=>this.measureSpot(),470); }, 760);
+    const s0=steps[idx]||{}; setTimeout(()=>{ this.closePia(); this.go(s0.screen||cf.screen, s0.tab||cf.tab); setTimeout(()=>this.measureSpot(),470); }, 760);
   }
   async startGuided(flow, mode){
     const labels={text:'Guíame paso a paso',tour:'Hazme un tour por la app',auto:'Prepáralo por mí (yo confirmo)'};
@@ -1550,7 +1573,7 @@ class Component extends DCLogic {
   async flow_aporte(){ await this.say('¡Perfecto! Puedo ayudarte a aumentar tu cuota de participación. Revisé tu información y esta es mi recomendación para ti:',{time:true}); await this.pushMsg({cardAporte:true}); }
   async execAporte(){ await this.userMsg('Sí, confirmo el aumento'); await this.say('¡Listo! 👍 Registré la confirmación que hiciste. Aquí queda tu comprobante:'); await this.type(900); this.setState({cuotaPart:100, aporteDone:true}); await this.pushMsg({cardSuccess:true}); await this.say('¿Te acompaño en algo más? 😊',{time:true}); await this.mainChips(); }
   async cancelAporte(){ await this.userMsg('No, revisar más opciones'); await this.say('Sin problema. ¿Qué más te gustaría hacer?'); await this.mainChips(); }
-  async flow_ahorro(){ await this.say('Este mes has ahorrado $120.450 👏 Aquí te muestro el detalle:',{time:true}); await this.pushMsg({cardAhorro:true}); await this.say('Si mantienes este ritmo, alcanzarás tu meta de $500.000 unos 2 meses antes. 🚀',{time:true}); await this.pushChipsRaw([{label:'Acompáñame a mi meta (3 modos)', icon:this.ic('piggy'), on:()=>this.flowModes('ahorro')}]); }
+  async flow_ahorro(){ await this.say('Este mes has ahorrado $120.450 👏 Aquí te muestro el detalle:',{time:true}); await this.pushMsg({cardAhorro:true}); await this.say('Si mantienes este ritmo, alcanzarás tu meta de $500.000 unos 2 meses antes. 🚀',{time:true}); await this.pushChipsRaw([{label:'Acompáñame a mi meta (3 modos)', icon:this.ic('piggy'), on:()=>this.flowModes('ahorro')}, {label:'Crear un Ahorro Programado (guía)', icon:this.ic('piggy'), on:()=>this.flowModes('ahorroprog')}]); }
   async flow_tasas(){ await this.say('Te lo explico simple 🙂'); await this.say('• Tasa de interés (2,46% mensual): es lo que cuesta el dinero que pides.\n• CAE (Carga Anual Equivalente): reúne TODO el costo —interés + seguros + gastos— en un % anual. Sirve para comparar entre instituciones.\n• Plazo (cuotas): a más cuotas, la cuota baja, pero el costo total sube.'); await this.say('Prueba cómo cambia tu cuota 👇',{time:true}); await this.pushMsg({cardMinisim:true}); }
   async flow_despacho(){ await this.say('El despacho de tu nueva tarjeta de débito tarda entre 5 y 7 días hábiles a tu dirección registrada. Te avisaremos cuando esté en camino. 🚚',{time:true}); await this.mainChips(); }
   async flow_pago(){ return this.flowModes('pagar'); }
@@ -1596,7 +1619,7 @@ class Component extends DCLogic {
   async flow_deposito(){
     await this.say('El Depósito a Plazo es invertir seguro: dejas un monto fijo un tiempo (30, 60, 90 días o más) y sabes desde el inicio cuánto ganarás. 🔒',{time:true});
     await this.say('Ejemplo: $1.000.000 a 90 días (~0,45% mensual) → recibes aprox. $1.013.500 al final. Bajo riesgo, ideal para metas a corto plazo.');
-    await this.pushChipsRaw([ {label:'Me interesa, avísame', icon:this.ic('percent'), on:()=>{ this.userMsg('Me interesa un Depósito a Plazo'); this.say('¡Genial! Te avisaré con las mejores tasas vigentes para abrir tu Depósito a Plazo. 💚'); }}, {label:'Otra duda', icon:this.ic('book'), on:()=>this.chip('educacion')} ]);
+    await this.pushChipsRaw([ {label:'Simular con guía de PIA (3 modos)', icon:this.ic('spark'), on:()=>this.flowModes('deposito')}, {label:'Me interesa, avísame', icon:this.ic('percent'), on:()=>{ this.userMsg('Me interesa un Depósito a Plazo'); this.say('¡Genial! Te avisaré con las mejores tasas vigentes para abrir tu Depósito a Plazo. 💚'); }}, {label:'Otra duda', icon:this.ic('book'), on:()=>this.chip('educacion')} ]);
   }
   async flow_fondos(){
     await this.say('Los Fondos Mutuos juntan tu plata con la de muchos socios y la invierten en distintos instrumentos. 📈',{time:true});
@@ -1632,6 +1655,7 @@ class Component extends DCLogic {
       {id:'tasas', label:'Entender tasas y CAE', icon:this.ic('percent')},
       {id:'educacion', label:'Aprender sobre mis productos', icon:this.ic('book')},
       {id:'ahorro', label:'¿Cuánto ahorré este mes?', icon:this.ic('piggy')},
+      {id:'g_tarjetas', label:'Gestionar mi tarjeta', icon:this.ic('card')},
       {id:'dudas', label:'Tengo otras dudas', icon:this.ic('chat')},
     ]);
   }
@@ -1674,6 +1698,7 @@ class Component extends DCLogic {
     if(/(invertir|inversion|donde invierto|hacer crecer)/.test(s)) return this.chip('g_inversion');
     if(/(simul|credito|prestamo|consumo)/.test(s)) return this.chip('simular');
     if(/(tasa|cae|interes)/.test(s)) return this.chip('tasas');
+    if(/(ahorro programado|programad|ahorro automatico)/.test(s)) return this.chip('g_ahorroprog');
     if(/(ahorr|meta|guardar plata)/.test(s)) return this.chip('ahorro');
     if(/(cuota de partic|participacion|aporte|aportar)/.test(s)) return this.chip('g_aporte');
     if(/(despacho|cuando llega|envio)/.test(s)) return this.chip('despacho');
@@ -1835,22 +1860,22 @@ class Component extends DCLogic {
       backInversiones:()=>this.go('inversiones','inversiones'),
       toCuentaAhorro:()=>this.go('cuenta-ahorro'),
       toAhorrando:()=>this.go('ahorrando'),
-      toCrearMeta:()=>this.go('crear-meta'),
-      metaGoals:[{ic:'✈️',label:'Viaje'},{ic:'🏠',label:'Casa'},{ic:'🚗',label:'Vehículo'},{ic:'📚',label:'Educación'},{ic:'🛍️',label:'Compras'},{ic:'📄',label:'Deudas'},{ic:'🏥',label:'Salud'},{ic:'🐷',label:'Solo Ahorrar'},{ic:'👴',label:'Mi Jubilación'}].map(g=>({ic:g.ic,label:g.label,on:()=>{ this.toast('Configuremos tu meta: '+g.label+'. PIA te acompaña. 💚'); this.go('ahorrando'); }})),
+      toCrearMeta:()=>{ const g=this.state.gf; const cur=g&&g.flow==='ahorro'?this.gfSteps('ahorro')[g.i]:null; this.go('crear-meta'); if(cur&&cur.key==='nueva') this.gfAdvance(); },
+      metaGoals:[{ic:'✈️',label:'Viaje'},{ic:'🏠',label:'Casa'},{ic:'🚗',label:'Vehículo'},{ic:'📚',label:'Educación'},{ic:'🛍️',label:'Compras'},{ic:'📄',label:'Deudas'},{ic:'🏥',label:'Salud'},{ic:'🐷',label:'Solo Ahorrar'},{ic:'👴',label:'Mi Jubilación'}].map(g=>({ic:g.ic,label:g.label,on:()=>{ this.endGuided(); this.toast('Configuremos tu meta: '+g.label+'. PIA te acompaña. 💚'); this.go('ahorrando'); }})),
       toAhorroProgramado:()=>this.go('ahorro-programado'),
       toCrearAhorroProg:()=>{ this.setState({apNombre:'',apMonto:'',apDia:''}); this.go('crear-ahorro-programado'); },
       apNombre:st.apNombre, onApNombre:(e)=>this.setState({apNombre:e.target.value}),
       apMontoView: st.apMonto?('$'+this.fmt(st.apMonto)):'', onApMonto:(e)=>this.setState({apMonto:e.target.value.replace(/\D/g,'').slice(0,9)}),
       apDia:st.apDia, onApDia:(e)=>this.setState({apDia:e.target.value.replace(/\D/g,'').slice(0,2)}),
       apContBg: (st.apNombre.trim()&&((parseInt(st.apMonto||'0',10)||0)>=1000)&&st.apDia)?'#E81E2C':'#C9CACE',
-      apContinuar:()=>{ if(!(st.apNombre.trim()&&((parseInt(st.apMonto||'0',10)||0)>=1000)&&st.apDia)){ this.toast('Completa los datos del ahorro (monto mínimo $1.000)'); return; } this.toast('¡Ahorro programado creado! 🎉 Se abonará cada mes.'); this.go('cuenta-ahorro'); },
+      apContinuar:()=>{ if(!(st.apNombre.trim()&&((parseInt(st.apMonto||'0',10)||0)>=1000)&&st.apDia)){ this.toast('Completa los datos del ahorro (monto mínimo $1.000)'); return; } this.endGuided(); this.toast('¡Ahorro programado creado! 🎉 Se abonará cada mes.'); this.go('cuenta-ahorro'); },
       toCuotaParticipacion:()=>this.go('cuota-participacion'),
       cuotaPart:st.cuotaPart,
       crearClave:()=>{ if(st.cardActiva){ this.toast('Tu tarjeta ya está activa ✓'); return; } this.setState({cardActiva:true, cardClaveSet:true}); this.toast('¡Clave creada! Tu tarjeta quedó activa. 💳'); this.endGuided(); },
       cardEstado: st.cardActiva?'Activa':'Inactiva', cardEstadoCol: st.cardActiva?'#7CFFB0':'#fff', crearClaveLabel: st.cardActiva?'Tarjeta activada ✓':'Crear clave y activar',
       mostrarDatos:()=>this.toast('Mostrando los datos de tu tarjeta de forma segura…'),
       bloquearTarjeta:()=>this.toast('Abriendo el bloqueo de tarjeta…'),
-      cambiarClave:()=>this.toast('Vamos a cambiar la clave de tu tarjeta…'),
+      cambiarClave:()=>{ this.endGuided(); this.toast('Vamos a cambiar la clave de tu tarjeta…'); },
       misSuscripciones:()=>this.toast('Próximamente: tus suscripciones asociadas a la tarjeta'),
       configWallet:()=>this.toast('Configurando tu tarjeta en Apple Wallet…'),
       pagoAutomatico:()=>this.toast('Activar Pago Automático de tu cuota de participación'),
@@ -1867,7 +1892,7 @@ class Component extends DCLogic {
       dpMontoView: st.dpMonto?('$'+this.fmt(st.dpMonto)):'', onDpMonto:(e)=>this.setState({dpMonto:e.target.value.replace(/\D/g,'').slice(0,9)}),
       dpPlazo:st.dpPlazo, onDpPlazo:(e)=>this.setState({dpPlazo:e.target.value.replace(/\D/g,'').slice(0,3)}),
       dpSimBtnBg: (((parseInt(st.dpMonto||'0',10)||0)>=1000)&&((parseInt(st.dpPlazo||'0',10)||0)>=7))?'#E81E2C':'#C9CACE',
-      doDepositoSim:()=>{ const m=parseInt(st.dpMonto||'0',10)||0, d=parseInt(st.dpPlazo||'0',10)||0; if(m<1000){ this.toast('El monto mínimo es $1.000'); return; } if(d<7||d>900){ this.toast('El plazo va de 7 a 900 días'); return; } const g=Math.round(m*0.00042*d); this.setState({dpSim:{cap:m,gan:g,total:m+g,dias:d}}); },
+      doDepositoSim:()=>{ const m=parseInt(st.dpMonto||'0',10)||0, d=parseInt(st.dpPlazo||'0',10)||0; if(m<1000){ this.toast('El monto mínimo es $1.000'); return; } if(d<7||d>900){ this.toast('El plazo va de 7 a 900 días'); return; } const g=Math.round(m*0.00042*d); this.setState({dpSim:{cap:m,gan:g,total:m+g,dias:d}}); this.endGuided(); },
       dpResultOpen: !!st.dpSim,
       dpCapitalText: this.peso(st.dpSim?st.dpSim.cap:0), dpGananciaText: '+'+this.peso(st.dpSim?st.dpSim.gan:0), dpTotalText: this.peso(st.dpSim?st.dpSim.total:0),
       autorizar:()=>{ this.toast('¡Autorización registrada! Revisaremos tus cotizaciones.'); this.go('creditos','creditos'); },
