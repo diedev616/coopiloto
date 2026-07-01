@@ -579,32 +579,64 @@
   <sc-if value="{{ is.transferir }}" hint-placeholder-val="{{ false }}">
   <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
     <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
-    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backHome }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:17px; font-weight:700; color:#2b2b2b; letter-spacing:.5px">TRANSFERIR</div><div style="width:34px"></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backHome }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">TRANSFERENCIA DE FONDOS</div><div style="width:34px"></div></div>
     <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
-      <sc-if value="{{ transferDone }}" hint-placeholder-val="{{ false }}">
-      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:24px; text-align:center">
-        <div style="width:66px; height:66px; border-radius:50%; background:#fff; border:3px solid #34A853; display:flex; align-items:center; justify-content:center; margin:0 auto"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
-        <div style="font-size:20px; font-weight:700; color:#2b2b2b; margin-top:14px">¡Transferencia exitosa!</div>
-        <div style="font-size:30px; font-weight:700; color:#243757; margin-top:12px">{{ transferMontoText }}</div>
-        <div style="font-size:15px; color:#5a5e66; margin-top:4px">a {{ transferTo }}</div>
-        <div style="border-top:1px solid #EEF0F2; margin-top:16px; padding-top:14px; text-align:left">
-          <div style="display:flex; justify-content:space-between; padding:6px 0"><span style="font-size:14px; color:#7b7f86">N° de operación</span><span style="font-size:14px; font-weight:700; color:#2b2b2b">748120934</span></div>
-          <div style="display:flex; justify-content:space-between; padding:6px 0"><span style="font-size:14px; color:#7b7f86">Fecha</span><span style="font-size:14px; font-weight:700; color:#2b2b2b">27 Jun 2026 16:24</span></div>
+      <!-- Tabs A Terceros / Entre Productos -->
+      <div style="display:flex; gap:12px; margin-bottom:18px">
+        <button onClick="{{ setTabTerceros }}" style="flex:1; height:46px; border-radius:23px; border:none; cursor:pointer; font-family:Ubuntu; font-size:15px; font-weight:700; background:{{ tabTerBg }}; color:{{ tabTerFg }}">A Terceros</button>
+        <button onClick="{{ setTabProductos }}" style="flex:1; height:46px; border-radius:23px; border:none; cursor:pointer; font-family:Ubuntu; font-size:15px; font-weight:700; background:{{ tabProdBg }}; color:{{ tabProdFg }}">Entre Productos</button>
+      </div>
+
+      <!-- ---------- A TERCEROS ---------- -->
+      <sc-if value="{{ tabTerceros }}" hint-placeholder-val="{{ true }}">
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-bottom:10px">Cuenta de origen</div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:14px 16px; display:flex; align-items:center; justify-content:space-between; margin-bottom:14px">
+        <div><div style="font-size:15px; font-weight:700; color:#2b2b2b">Cuenta Vista Coopeuch</div><div style="font-size:13px; color:#9aa0a8; margin-top:2px">N° 012232334</div><div style="font-size:13px; color:#5a5e66; margin-top:6px">Saldo disponible <b style="color:#243757">{{ saldoText }}</b></div></div>
+        <div style="width:56px; height:36px; border-radius:6px; background:linear-gradient(135deg,#E81E2C,#B00D18); position:relative; overflow:hidden"><div style="position:absolute; right:-6px; top:-6px; width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.14)"></div></div>
+      </div>
+      <button onClick="{{ openAddDest }}" style="width:100%; background:#fff; border:none; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:15px 16px; display:flex; align-items:center; gap:12px; cursor:pointer; font-family:Ubuntu; margin-bottom:16px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.3"/><path d="M3.5 20c0-3.3 2.6-5.5 5.5-5.5"/><path d="M17.5 12.5v6M14.5 15.5h6"/></svg>
+        <span style="flex:1; text-align:left; font-size:15px; font-weight:700; color:#2b2b2b">Agregar nuevo destinatario</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:16px">
+        <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-bottom:12px">Selecciona destinatario</div>
+        <div style="display:flex; align-items:center; gap:10px; border:1.5px solid #E0E3E7; border-radius:10px; padding:0 14px; height:48px; margin-bottom:4px">
+          <input value="{{ destQuery }}" onInput="{{ onDestQuery }}" placeholder="Buscar por nombre o RUT" style="flex:1; border:none; outline:none; font-size:14.5px; font-family:Ubuntu; color:#2b2b2b; background:none"/>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9aa0a8" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
         </div>
-        <button onClick="{{ backHome }}" style="width:100%; height:52px; border-radius:26px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:18px">Volver al inicio</button>
+        <sc-if value="{{ hasDest }}" hint-placeholder-val="{{ true }}">
+        <sc-for list="{{ destinatariosView }}" as="d" hint-placeholder-count="2">
+          <button id="{{ d.tid }}" onClick="{{ d.on }}" style="width:100%; display:flex; align-items:center; gap:12px; padding:13px 4px; border:none; border-bottom:1px solid #F1F2F4; background:none; cursor:pointer; font-family:Ubuntu; text-align:left">
+            <span style="width:42px; height:42px; border-radius:50%; background:#E81E2C; color:#fff; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; flex:none">{{ d.ini }}</span>
+            <span style="flex:1"><span style="display:block; font-size:15px; font-weight:700; color:#2b2b2b">{{ d.nombre }}</span><span style="display:block; font-size:13px; color:#9aa0a8; margin-top:1px">{{ d.sub }}</span></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CFD2D7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </sc-for>
+        </sc-if>
+        <sc-if value="{{ noDest }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:34px 10px 22px">
+          <div style="width:64px; height:64px; border-radius:14px; background:#EEF0F2; display:flex; align-items:center; justify-content:center; margin:0 auto"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#B7BCC3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg></div>
+          <div style="font-size:17px; font-weight:700; color:#2b2b2b; margin-top:16px">No posees ningún destinatario</div>
+          <div style="font-size:14px; color:#7b7f86; margin-top:6px; line-height:1.4">Te invitamos a agregar destinatarios para poder realizar transferencias.</div>
+        </div>
+        </sc-if>
       </div>
       </sc-if>
-      <sc-if value="{{ transferForm }}" hint-placeholder-val="{{ true }}">
-      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:18px">
-        <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Destinatario</div>
-        <div style="display:flex; align-items:center; gap:12px; border:1.5px solid #CFD2D7; border-radius:10px; padding:12px 14px"><span style="width:38px; height:38px; border-radius:50%; background:#E81E2C; color:#fff; display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; flex:none">JR</span><div style="flex:1"><div style="font-size:15px; font-weight:700; color:#2b2b2b">{{ transferTo }}</div><div style="font-size:13px; color:#9aa0a8">Cuenta Vista · ****8821</div></div></div>
-        <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin:18px 0 8px">Monto a transferir</div>
-        <input id="tgt-tr-monto" value="{{ transferMontoView }}" onInput="{{ onTransferMonto }}" inputmode="numeric" placeholder="$ Ingresa monto" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:18px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; box-shadow:{{ hlTransfer }}; transition:box-shadow .2s"/>
-        <div style="font-size:13px; color:#9aa0a8; margin-top:6px">Saldo disponible: $ 234.040</div>
-        <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin:18px 0 8px">Mensaje (opcional)</div>
-        <input value="{{ transferMsg }}" onInput="{{ onTransferMsg }}" placeholder="Ej: Pago arriendo" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+
+      <!-- ---------- ENTRE PRODUCTOS ---------- -->
+      <sc-if value="{{ tabProductos }}" hint-placeholder-val="{{ false }}">
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-bottom:10px">Selecciona cuenta de origen</div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:14px 16px; display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; border:2px solid #1483C2">
+        <div><div style="font-size:15px; font-weight:700; color:#2b2b2b">Cuenta Vista Coopeuch</div><div style="font-size:13px; color:#9aa0a8; margin-top:2px">N° 012232334</div><div style="font-size:13px; color:#5a5e66; margin-top:6px">Saldo disponible <b style="color:#243757">{{ saldoText }}</b></div></div>
+        <div style="width:56px; height:36px; border-radius:6px; background:linear-gradient(135deg,#E81E2C,#B00D18); position:relative; overflow:hidden"><div style="position:absolute; right:-6px; top:-6px; width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.14)"></div></div>
       </div>
-      <button id="tgt-tr-confirm" onClick="{{ doTransfer }}" style="width:100%; height:56px; border-radius:28px; border:none; cursor:pointer; background:{{ transferBtnBg }}; color:#fff; font-family:Ubuntu; font-size:18px; font-weight:700; margin-top:20px">Transferir</button>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-bottom:10px">Selecciona cuenta de destino</div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:14px 16px; display:flex; align-items:center; justify-content:space-between; margin-bottom:26px; border:2px solid #1483C2">
+        <div><div style="font-size:15px; font-weight:700; color:#2b2b2b">Cuenta Ahorro</div><div style="font-size:13px; color:#9aa0a8; margin-top:2px">N° 202194782</div><div style="font-size:13px; color:#5a5e66; margin-top:6px">Saldo disponible <b style="color:#243757">$0</b></div></div>
+        <div style="width:56px; height:36px; border-radius:6px; background:#E7EAEE; border:1px solid #D3D8DE; display:flex; align-items:center; justify-content:center"><div style="width:20px; height:15px; border-radius:2px; background:#C9A24B"></div></div>
+      </div>
+      <button id="tgt-prod-cont" onClick="{{ prodContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700">Continuar</button>
       </sc-if>
     </div>
   </div>
@@ -625,6 +657,150 @@
             <div style="text-align:right"><div style="font-size:15px; font-weight:700; color:#243757">{{ s.amt }}</div><button id="{{ s.tid }}" onClick="{{ s.on }}" style="margin-top:4px; background:#E81E2C; color:#fff; border:none; border-radius:13px; padding:6px 14px; font-family:Ubuntu; font-size:12.5px; font-weight:700; cursor:pointer">Pagar</button></div>
           </div>
         </sc-for>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TRANSFERIR · AGREGAR DESTINATARIO ===================== -->
+  <sc-if value="{{ is.transferAdd }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backToHub }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">AGREGAR DESTINATARIO</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:18px 16px">
+        <div style="font-size:17px; font-weight:700; color:#2b2b2b; margin-bottom:14px">Datos del nuevo destinatario</div>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin-bottom:6px">RUT</div>
+        <input value="{{ addRut }}" onInput="{{ onAddRut }}" placeholder="Ej: 12.345.678-0" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none; margin-bottom:14px"/>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin-bottom:6px">Nombre</div>
+        <input value="{{ addNombre }}" onInput="{{ onAddNombre }}" placeholder="Ej: Jose Perez" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none; margin-bottom:14px"/>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin-bottom:6px">Email (Opcional)</div>
+        <input value="{{ addEmail }}" onInput="{{ onAddEmail }}" placeholder="Ej: nombre@correo.cl" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none"/>
+        <div style="height:1px; background:#EEF0F2; margin:20px 0"></div>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin-bottom:6px">Institución financiera</div>
+        <div onClick="{{ openInstSheet }}" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; margin-bottom:14px"><span style="font-size:15px; color:{{ addInstColor }}">{{ addInstView }}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin-bottom:6px">Tipo de cuenta</div>
+        <div onClick="{{ openTipoSheet }}" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; display:flex; align-items:center; justify-content:space-between; cursor:pointer; margin-bottom:14px"><span style="font-size:15px; color:{{ addTipoColor }}">{{ addTipoView }}</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin-bottom:6px">Número de cuenta</div>
+        <input value="{{ addCuenta }}" onInput="{{ onAddCuenta }}" inputmode="numeric" placeholder="Ej: 1234567890" style="width:100%; height:50px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 14px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none; margin-bottom:18px"/>
+        <div onClick="{{ toggleAddGuardar }}" style="display:flex; align-items:center; gap:12px; cursor:pointer"><span style="width:24px; height:24px; border-radius:6px; border:2px solid {{ addGuardarBd }}; background:{{ addGuardarBg }}; display:flex; align-items:center; justify-content:center; flex:none">{{ addGuardarCheck }}</span><span style="font-size:14px; color:#2b2b2b; line-height:1.35">Guardar destinatario para futuras transferencias</span></div>
+      </div>
+      <button onClick="{{ addContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ addContBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Continuar</button>
+      <div style="text-align:center; margin-top:18px"><span onClick="{{ backToHub }}" style="color:#E81E2C; font-size:16px; font-weight:700; text-decoration:underline; cursor:pointer">Cancelar</span></div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TRANSFERIR · MONTO A TERCEROS ===================== -->
+  <sc-if value="{{ is.transferMonto }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backToHub }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">TRANSFERENCIA DE FONDOS</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:16px">
+        <div style="display:flex; gap:12px">
+          <div style="display:flex; flex-direction:column; align-items:center; padding-top:3px"><span style="width:11px; height:11px; border-radius:50%; border:2px solid #B7BCC3"></span><span style="width:2px; flex:1; background:#E0E3E7; margin:2px 0"></span><span style="width:11px; height:11px; border-radius:50%; background:#1483C2"></span></div>
+          <div style="flex:1">
+            <div style="font-size:14px; font-weight:700; color:#2b2b2b">Desde</div>
+            <div style="font-size:14px; color:#5a5e66; margin-top:2px">Cuenta Vista Coopeuch<br/>N° 012232334</div>
+            <div style="font-size:14px; font-weight:700; color:#2b2b2b; margin-top:14px">Para</div>
+            <div style="font-size:14px; color:#5a5e66; margin-top:2px">{{ terDestName }}<br/>{{ terDestSub }}<br/>{{ terDestBanks }}</div>
+            <div onClick="{{ cambiarDest }}" style="display:flex; align-items:center; gap:6px; margin-top:8px; cursor:pointer"><span style="font-size:14px; font-weight:700; color:#1483C2">Cambiar destinatario</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#1483C2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M4 20c0-3 2.5-5 5-5"/><path d="M15 6l3-3 3 3M18 3v8"/></svg></div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin:20px 0 8px">Monto a transferir</div>
+      <input id="tgt-ter-monto" value="{{ transferMontoView }}" onInput="{{ onTransferMonto }}" inputmode="numeric" placeholder="$ Ingresa monto" style="width:100%; height:52px; border-radius:10px; border:1.5px solid {{ terMontoBd }}; padding:0 16px; font-size:18px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; box-shadow:{{ hlTransfer }}; transition:box-shadow .2s; background:#fff"/>
+      <sc-if value="{{ terMontoErrShow }}" hint-placeholder-val="{{ false }}"><div style="display:flex; align-items:center; gap:6px; margin-top:6px"><svg width="16" height="16" viewBox="0 0 24 24" fill="#E04150"><circle cx="12" cy="12" r="10"/><path d="M11 7h2v6h-2zM11 15h2v2h-2z" fill="#fff"/></svg><span style="font-size:13px; color:#E04150">{{ terMontoErr }}</span></div></sc-if>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin:20px 0 8px">Mensaje</div>
+      <input value="{{ transferMsg }}" onInput="{{ onTransferMsgLim }}" placeholder="Ingresa un mensaje (opcional)" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none; background:#fff"/>
+      <div style="text-align:right; font-size:12px; color:#9aa0a8; margin-top:4px">{{ msgCount }}/70</div>
+      <button id="tgt-ter-monto-cont" onClick="{{ terContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ terContBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:16px">Continuar</button>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TRANSFERIR · PASSCOOPEUCH ===================== -->
+  <sc-if value="{{ is.transferAuth }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backToHub }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">TRANSFERENCIA DE FONDOS</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:18px 16px">
+        <div style="font-size:15px; color:#5a5e66">Monto a transferir</div>
+        <div style="font-size:30px; font-weight:700; color:#243757; margin-top:4px">{{ transferMontoText }}</div>
+      </div>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin:18px 0 8px">Mensaje Transferencia</div>
+      <div style="background:#fff; border-radius:10px; padding:14px 16px; font-size:15px; color:#2b2b2b">{{ authMsgText }}</div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:20px 18px; margin-top:18px">
+        <div style="font-size:19px; font-weight:700; color:#2b2b2b">PassCoopeuch</div>
+        <div style="display:flex; justify-content:center; margin:16px 0"><svg width="150" height="130" viewBox="0 0 150 130"><circle cx="75" cy="62" r="58" fill="#DCEFF8"/><rect x="52" y="34" width="46" height="72" rx="9" fill="#fff" stroke="#1B4E73" stroke-width="2.5"/><rect x="59" y="44" width="32" height="8" rx="2" fill="#B9D9EC"/><rect x="63" y="58" width="24" height="22" rx="5" fill="none" stroke="#1B4E73" stroke-width="2.5"/><path d="M68 58v-4a7 7 0 0 1 14 0v4" fill="none" stroke="#1B4E73" stroke-width="2.5"/><circle cx="75" cy="68" r="3" fill="#1B4E73"/><g fill="#1B4E73"><circle cx="61" cy="90" r="2.4"/><circle cx="70" cy="90" r="2.4"/><circle cx="79" cy="90" r="2.4"/><circle cx="88" cy="90" r="2.4"/></g><path d="M108 40a10 10 0 0 1 0 20" fill="#EF7D00"/><circle cx="108" cy="34" r="8" fill="#1B4E73"/><path d="M105 34l2 2 4-4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div style="text-align:center; font-size:14.5px; color:#5a5e66; line-height:1.45; padding:0 6px">Revisa la notificación que enviamos a tu celular e ingresa tu clave PassCoopeuch</div>
+        <button id="tgt-ter-auth" onClick="{{ authTransfer }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:#1B7FB8; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:18px">{{ authTimerText }} Min para autorizar</button>
+      </div>
+      <sc-if value="{{ coachOnAuth }}" hint-placeholder-val="{{ false }}"><div style="background:#FFF4F5; border:1px solid #F6D5D8; border-radius:12px; padding:12px 14px; margin-top:16px; display:flex; gap:10px; align-items:flex-start"><img src="assets/pia-avatar.png" style="width:30px; height:30px; border-radius:50%; flex:none"/><div style="font-size:13.5px; color:#8E0A14; line-height:1.4">Este es el paso seguro: la autorización con PassCoopeuch la haces <b>tú</b>. Yo solo te acompañé hasta aquí. 💚</div></div></sc-if>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TRANSFERIR · ENTRE PRODUCTOS 1/3 ===================== -->
+  <sc-if value="{{ is.transferProdMonto }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backToHub }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">TRANSFERENCIA DE FONDOS</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:14px 16px 30px">
+      <div style="height:4px; background:#E6E8EB; border-radius:2px; overflow:hidden"><div style="width:33%; height:100%; background:#E81E2C"></div></div>
+      <div style="display:flex; justify-content:space-between; margin:8px 0 16px"><span style="font-size:13.5px; color:#5a5e66">1. Monto a transferir</span><span style="font-size:13.5px; color:#9aa0a8">1/3</span></div>
+      <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Cuenta de origen</div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:13px 16px; display:flex; align-items:center; gap:12px; margin-bottom:16px; border-left:4px solid #1483C2"><div style="width:50px; height:34px; border-radius:6px; background:linear-gradient(135deg,#E81E2C,#B00D18); flex:none"></div><div><div style="font-size:15px; font-weight:700; color:#2b2b2b">Cuenta Vista Coopeuch</div><div style="font-size:13px; color:#9aa0a8; margin-top:2px">Titular · N° 012232334</div></div></div>
+      <div style="font-size:15px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Cuenta de destino</div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:13px 16px; display:flex; align-items:center; gap:12px; margin-bottom:20px; border-left:4px solid #1483C2"><div style="width:50px; height:34px; border-radius:6px; background:#E7EAEE; border:1px solid #D3D8DE; flex:none; display:flex; align-items:center; justify-content:center"><div style="width:18px; height:13px; border-radius:2px; background:#C9A24B"></div></div><div><div style="font-size:15px; font-weight:700; color:#2b2b2b">Cuenta Ahorro</div><div style="font-size:13px; color:#9aa0a8; margin-top:2px">Titular · N° 202194782</div></div></div>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Monto a transferir</div>
+      <input id="tgt-prod-monto" value="{{ transferMontoView }}" onInput="{{ onTransferMonto }}" inputmode="numeric" placeholder="$ Ingresa monto" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:18px; font-family:Ubuntu; color:#243757; font-weight:700; outline:none; box-shadow:{{ hlTransfer }}; transition:box-shadow .2s; background:#fff"/>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin:18px 0 8px">Mensaje Transferencia</div>
+      <input value="{{ transferMsg }}" onInput="{{ onTransferMsgLim }}" placeholder="Ingresa Mensaje" style="width:100%; height:52px; border-radius:10px; border:1.5px solid #CFD2D7; padding:0 16px; font-size:15px; font-family:Ubuntu; color:#2b2b2b; outline:none; background:#fff"/>
+      <div style="text-align:right; font-size:12px; color:#9aa0a8; margin-top:4px">{{ msgCount }}/70</div>
+      <button id="tgt-prod-monto-cont" onClick="{{ prodMontoContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:{{ prodMontoBg }}; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:18px">Continuar</button>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TRANSFERIR · ENTRE PRODUCTOS 2/3 ===================== -->
+  <sc-if value="{{ is.transferProdConfirm }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:23</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><button onClick="{{ backToProdMonto }}" style="background:none; border:none; cursor:pointer; padding:6px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E81E2C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">TRANSFERENCIA DE FONDOS</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:14px 16px 30px">
+      <div style="height:4px; background:#E6E8EB; border-radius:2px; overflow:hidden"><div style="width:66%; height:100%; background:#E81E2C"></div></div>
+      <div style="display:flex; justify-content:space-between; margin:8px 0 16px"><span style="font-size:13.5px; color:#5a5e66">2. Confirmación</span><span style="font-size:13.5px; color:#9aa0a8">2/3</span></div>
+      <div style="background:#fff; border-radius:14px; box-shadow:0 4px 14px rgba(20,30,60,.07); padding:18px 16px">
+        <div style="font-size:15px; color:#5a5e66">Monto a transferir</div>
+        <div style="font-size:32px; font-weight:700; color:#243757; margin-top:4px">{{ transferMontoText }}</div>
+      </div>
+      <div style="font-size:16px; font-weight:700; color:#2b2b2b; margin:18px 0 8px">Mensaje Transferencia</div>
+      <div style="background:#fff; border-radius:10px; padding:14px 16px; font-size:15px; color:#2b2b2b">{{ authMsgText }}</div>
+      <div style="display:flex; gap:10px; align-items:flex-start; background:#DCEFF8; border-radius:12px; padding:14px 16px; margin-top:16px"><svg width="20" height="20" viewBox="0 0 24 24" fill="#1B7FB8" style="flex:none; margin-top:1px"><circle cx="12" cy="12" r="10"/><path d="M11 10h2v7h-2zM11 6h2v2h-2z" fill="#fff"/></svg><div style="font-size:14px; color:#15639E; line-height:1.4">Ahora puedes transferir entre tus productos sin necesidad de autorización adicional.</div></div>
+      <button id="tgt-prod-confirm-btn" onClick="{{ prodConfirm }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:20px">Transferir</button>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== TRANSFERIR · ÉXITO ===================== -->
+  <sc-if value="{{ is.transferDoneScreen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; display:flex; flex-direction:column; background:#F1F2F4">
+    <div style="height:48px; background:#E81E2C; display:flex; align-items:flex-end; justify-content:space-between; padding:0 24px 8px; color:#fff; flex:none"><div style="font-size:15px; font-weight:700">16:24</div><div style="display:flex; align-items:center; gap:7px"><svg width="18" height="12" viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1" fill="#fff"/><rect x="5" y="5" width="3" height="7" rx="1" fill="#fff"/><rect x="10" y="2.5" width="3" height="9.5" rx="1" fill="#fff"/><rect x="15" y="0" width="3" height="12" rx="1" fill="#fff" opacity=".5"/></svg><span style="font-size:13px; font-weight:700">5G</span><svg width="26" height="13" viewBox="0 0 26 13"><rect x="1" y="1" width="21" height="11" rx="3" fill="none" stroke="#fff" stroke-opacity=".6"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="#fff"/><rect x="23" y="4" width="2" height="5" rx="1" fill="#fff" opacity=".6"/></svg></div></div>
+    <div style="height:54px; background:#F1F2F4; display:flex; align-items:center; padding:0 16px; flex:none; border-bottom:1px solid #E6E8EB"><div style="width:34px"></div><div style="flex:1; text-align:center; font-size:15.5px; font-weight:700; color:#2b2b2b; letter-spacing:.3px">TRANSFERENCIA DE FONDOS</div><div style="width:34px"></div></div>
+    <div id="screenScroll" style="flex:1; overflow-y:auto; padding:16px 16px 30px">
+      <div style="background:#fff; border-radius:16px; box-shadow:0 6px 18px rgba(20,30,60,.08); padding:24px; text-align:center">
+        <div style="width:66px; height:66px; border-radius:50%; background:#fff; border:3px solid #34A853; display:flex; align-items:center; justify-content:center; margin:0 auto"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <div style="font-size:20px; font-weight:700; color:#2b2b2b; margin-top:14px">¡Transferencia exitosa!</div>
+        <div style="font-size:30px; font-weight:700; color:#243757; margin-top:12px">{{ transferMontoText }}</div>
+        <div style="font-size:15px; color:#5a5e66; margin-top:4px">a {{ transferTo }}</div>
+        <div style="border-top:1px solid #EEF0F2; margin-top:16px; padding-top:14px; text-align:left">
+          <div style="display:flex; justify-content:space-between; padding:6px 0"><span style="font-size:14px; color:#7b7f86">N° de operación</span><span style="font-size:14px; font-weight:700; color:#2b2b2b">748120934</span></div>
+          <div style="display:flex; justify-content:space-between; padding:6px 0"><span style="font-size:14px; color:#7b7f86">Fecha</span><span style="font-size:14px; font-weight:700; color:#2b2b2b">30 Jun 2026 16:24</span></div>
+        </div>
+        <button onClick="{{ backHome }}" style="width:100%; height:52px; border-radius:26px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:18px">Volver al inicio</button>
       </div>
     </div>
   </div>
@@ -729,6 +905,57 @@
     </div>
     <button onClick="{{ confirmDate }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700">Seleccionar</button>
     <div style="text-align:center; margin-top:18px"><span onClick="{{ closeDate }}" style="color:#E81E2C; font-size:16px; font-weight:700; text-decoration:underline; cursor:pointer">Cancelar</span></div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== PEGAR DATOS MODAL ===================== -->
+  <sc-if value="{{ pasteOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,.55); z-index:57; display:flex; align-items:center; justify-content:center; padding:24px; animation:fadeIn .2s ease">
+    <div style="width:100%; background:#fff; border-radius:20px; padding:24px 20px; text-align:center">
+      <div style="font-size:19px; font-weight:700; color:#2b2b2b">¿Quieres pegar los datos copiados?</div>
+      <div style="font-size:14px; color:#7b7f86; margin-top:6px">Puedes editar los datos más adelante.</div>
+      <div style="text-align:left; margin-top:18px">
+        <sc-for list="{{ pasteRows }}" as="r" hint-placeholder-count="6">
+          <div style="display:flex; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid #F1F2F4"><span style="width:96px; font-size:13.5px; color:#7b7f86; flex:none">{{ r.k }}</span><span style="flex:1; font-size:14px; font-weight:700; color:#2b2b2b">{{ r.v }}</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+        </sc-for>
+      </div>
+      <button onClick="{{ pasteData }}" style="width:100%; height:52px; border-radius:26px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:16px; font-weight:700; margin-top:20px">Pegar datos</button>
+      <div style="margin-top:16px"><span onClick="{{ closePaste }}" style="color:#E81E2C; font-size:16px; font-weight:700; text-decoration:underline; cursor:pointer">Cancelar</span></div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== SEGURIDAD / ¡IMPORTANTE! MODAL ===================== -->
+  <sc-if value="{{ secOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,.55); z-index:57; display:flex; align-items:flex-end; justify-content:center; animation:fadeIn .2s ease">
+    <div style="width:100%; background:#fff; border-radius:24px 24px 0 0; padding:28px 24px calc(26px + env(safe-area-inset-bottom)); text-align:center; animation:sheetUp .28s ease both">
+      <div style="width:70px; height:70px; border-radius:50%; background:#DCEFF8; display:flex; align-items:center; justify-content:center; margin:0 auto; position:relative"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1B7FB8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="12" rx="2"/><path d="M6 11l-2 2 2 2M18 11l2 2-2 2M9 13h6"/></svg><span style="position:absolute; top:2px; right:8px; width:20px; height:20px; border-radius:50%; background:#1B4E73; color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center">i</span></div>
+      <div style="font-size:20px; font-weight:700; color:#2b2b2b; margin-top:14px">¡Importante!</div>
+      <div style="font-size:15px; color:#5a5e66; margin-top:10px; line-height:1.5">Por seguridad la primera transferencia tiene un límite <b style="color:#2b2b2b">máximo de $5.000.000</b>. Para volver a transferir a un nuevo destinatario debes esperar 24 horas.</div>
+      <button onClick="{{ secContinuar }}" style="width:100%; height:54px; border-radius:27px; border:none; cursor:pointer; background:#E81E2C; color:#fff; font-family:Ubuntu; font-size:17px; font-weight:700; margin-top:22px">Continuar</button>
+      <div style="margin-top:18px"><span onClick="{{ closeSec }}" style="color:#E81E2C; font-size:16px; font-weight:700; text-decoration:underline; cursor:pointer">No por ahora</span></div>
+    </div>
+  </div>
+  </sc-if>
+
+  <!-- ===================== INSTITUCIÓN / TIPO SHEETS ===================== -->
+  <sc-if value="{{ instSheet }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeInstSheet }}" style="position:absolute; inset:0; background:rgba(0,0,0,.4); z-index:58; animation:fadeIn .2s ease"></div>
+  <div style="position:absolute; left:0; right:0; bottom:0; background:#fff; border-radius:24px 24px 0 0; z-index:59; padding:22px 20px calc(22px + env(safe-area-inset-bottom)); max-height:64%; overflow-y:auto; animation:sheetUp .28s ease both">
+    <div style="font-size:18px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Institución financiera</div>
+    <sc-for list="{{ instOptions }}" as="o" hint-placeholder-count="6">
+      <button onClick="{{ o.on }}" style="width:100%; text-align:left; background:none; border:none; border-bottom:1px solid #F1F2F4; padding:15px 4px; font-family:Ubuntu; font-size:15px; color:#2b2b2b; cursor:pointer">{{ o.label }}</button>
+    </sc-for>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ tipoSheet }}" hint-placeholder-val="{{ false }}">
+  <div onClick="{{ closeTipoSheet }}" style="position:absolute; inset:0; background:rgba(0,0,0,.4); z-index:58; animation:fadeIn .2s ease"></div>
+  <div style="position:absolute; left:0; right:0; bottom:0; background:#fff; border-radius:24px 24px 0 0; z-index:59; padding:22px 20px calc(22px + env(safe-area-inset-bottom)); animation:sheetUp .28s ease both">
+    <div style="font-size:18px; font-weight:700; color:#2b2b2b; margin-bottom:8px">Tipo de cuenta</div>
+    <sc-for list="{{ tipoOptions }}" as="o" hint-placeholder-count="4">
+      <button onClick="{{ o.on }}" style="width:100%; text-align:left; background:none; border:none; border-bottom:1px solid #F1F2F4; padding:15px 4px; font-family:Ubuntu; font-size:15px; color:#2b2b2b; cursor:pointer">{{ o.label }}</button>
+    </sc-for>
   </div>
   </sc-if>
 
@@ -944,6 +1171,11 @@ class Component extends DCLogic {
     // aporte (flow 4)
     cuotaPart:15, aporteDone:false,
     transferTo:'Juan Rivera Soto', transferMonto:'', transferMsg:'', transferDone:false, movFilter:'todos', hlTransfer:false,
+    // transferencias (flujo real Coopeuch)
+    transferTab:'terceros', destQuery:'', selDest:null,
+    destinatarios:[{id:'d1', nombre:'Juan Rivera Soto', rut:'12.345.678-9', banco:'Banco De Chile', banks:'Banco De Chile / Edwards / Citi / Credichile', tipo:'Cuenta Corriente', cuenta:'00012345678', ini:'JR'}],
+    addRut:'', addNombre:'', addEmail:'', addInst:'', addTipo:'', addCuenta:'', addGuardar:true,
+    pasteOpen:false, secOpen:false, instSheet:false, tipoSheet:false, authSecs:117,
     // savings goal
     metaActual:380000, metaObjetivo:500000,
     // hipotecario + tarjeta
@@ -960,7 +1192,7 @@ class Component extends DCLogic {
   now(){ const d=new Date(); return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2); }
   resetScroll(id){ requestAnimationFrame(()=>{ const e=document.getElementById(id); if(e) e.scrollTop=0; }); }
 
-  go(screen, tab){ const s={screen, menuOpen:false}; if(tab) s.tab=tab; this.setState(s); this.resetScroll('screenScroll'); if(screen==='home') this.firstHome(); }
+  go(screen, tab){ const s={screen, menuOpen:false, peek:null}; if(tab) s.tab=tab; this.setState(s); this.resetScroll('screenScroll'); if(screen==='home') this.firstHome(); }
   firstHome(){ if(this._firstHome) return; this._firstHome=true; setTimeout(()=>{ if(this.state.screen==='home'&&!this.state.piaOpen) this.setState({promoOpen:true}); }, 850); }
   maybePeek(){ if(this._peeked||this.state.piaOpen||this.state.screen!=='home') return; this._peeked=true; this.setState({peek:{text:'Vi que tienes un crédito preaprobado 👀 ¿Te ayudo a simularlo paso a paso?', cta:'Simular con PIA', on:()=>{ this.setState({peek:null}); this.openPia('simular'); }}}); }
   toast(t){ this.setState({toast:t}); clearTimeout(this._tt); this._tt=setTimeout(()=>this.setState({toast:null}),2400); }
@@ -1021,9 +1253,11 @@ class Component extends DCLogic {
   // ---------- motor de acompañamiento guiado: 3 modos ----------
   gfSteps(flow){
     if(flow==='transfer') return [
-      {key:'home',    screen:'home',       tab:'inicio', target:'tgt-home-transfer', manual:false, tip:'Toca el botón rojo "Transferir" para comenzar.', tipT:'Paso 1 de 3 · Toca el botón rojo "Transferir" en tu saldo.', side:'bottom'},
-      {key:'monto',   screen:'transferir',               target:'tgt-tr-monto',     manual:true,  tip:'Escribe cuánto quieres transferir a Juan y toca Siguiente.', tipT:'Paso 2 de 3 · Escribe el monto a transferir y toca Siguiente.', side:'bottom'},
-      {key:'confirm', screen:'transferir',               target:'tgt-tr-confirm',   manual:false, tip:'Revisa los datos. Cuando estés seguro/a, toca "Transferir": la confirmación final es tuya. ✅', tipT:'Paso 3 de 3 · Revisa y toca "Transferir". Tú confirmas. ✅', side:'top'},
+      {key:'home',      screen:'home',           tab:'inicio', target:'tgt-home-transfer',   manual:false, tip:'Toca el botón rojo "Transferir" para comenzar.', tipT:'Paso 1 de 5 · Toca el botón rojo "Transferir".', side:'bottom'},
+      {key:'dest',      screen:'transferir',                   target:'tgt-ter-dest',        manual:false, tip:'Toca a "Juan Rivera Soto", el destinatario al que quieres transferir.', tipT:'Paso 2 de 5 · Elige a quién transferir: toca el destinatario.', side:'bottom'},
+      {key:'monto',     screen:'transfer-monto',               target:'tgt-ter-monto',       manual:true,  tip:'Escribe el monto (mínimo $1.500) y toca Siguiente.', tipT:'Paso 3 de 5 · Escribe el monto (mínimo $1.500) y toca Siguiente.', side:'bottom'},
+      {key:'continuar', screen:'transfer-monto',               target:'tgt-ter-monto-cont',  manual:false, tip:'Revisa el monto y toca "Continuar".', tipT:'Paso 4 de 5 · Toca "Continuar" para ir a la autorización.', side:'top'},
+      {key:'auth',      screen:'transfer-auth',                target:'tgt-ter-auth',        manual:false, tip:'Este es el paso seguro: la autorización con PassCoopeuch la haces TÚ. Yo solo te acompañé. ✅', tipT:'Paso 5 de 5 · Autoriza tú con PassCoopeuch. La confirmación final es tuya. ✅', side:'top'},
     ];
     if(flow==='credit') return [
       {key:'monto',     screen:'credito-sim',                  target:'tgt-cr-monto',     manual:true,  tip:'Escribe el monto (ej: 100000) y toca Siguiente.', name:'El monto', exp:'Es la cantidad de dinero que quieres pedir prestada. En Coopeuch puedes simular desde $100.000 hasta $50.000.000. Escríbelo sin puntos; nosotros le damos el formato. Recuerda: a mayor monto, mayor será cada cuota, así que pide solo lo que realmente necesitas.', side:'bottom'},
@@ -1091,20 +1325,41 @@ class Component extends DCLogic {
     await this.userMsg(labels[mode]||'Acompáñame');
     if(mode==='text') await this.say('¡Perfecto! Te voy indicando cada paso con un cartelito. Tú haces los toques; yo te aviso si falta algo. 👇',{time:true});
     if(mode==='tour') await this.say('¡Vamos! Voy a oscurecer el resto y dejar iluminado solo lo que debes tocar. Sigue mi guía. ✨',{time:true});
-    if(mode==='auto') await this.say('De acuerdo. Yo preparo tu transferencia y la dejo lista; al final TÚ confirmas tocando "Transferir". Nunca muevo tu dinero sin tu confirmación. 👍',{time:true});
-    this.setState({transferDone:false, transferMonto:(mode==='auto'?'50000':''), transferMsg:'', hlTransfer:(mode!=='tour')});
-    const steps=this.gfSteps(flow);
-    if(mode==='auto'){ this.setState({gf:{flow,mode,i:steps.length-1}}); setTimeout(()=>{ this.closePia(); this.go('transferir'); setTimeout(()=>this.measureSpot(),380); }, 760); return; }
-    this.setState({gf:{flow,mode,i:0}});
-    const first=steps[0];
-    setTimeout(()=>{ this.closePia(); this.go(first.screen, first.tab); setTimeout(()=>this.measureSpot(),440); }, 760);
+    if(mode==='auto') await this.say('De acuerdo. Preparo tu transferencia a Juan por $50.000 y te dejo en el paso de autorización. La clave PassCoopeuch la ingresas TÚ: nunca muevo tu dinero sin tu confirmación. 👍',{time:true});
+    const juan=this.state.destinatarios[0];
+    if(mode==='auto'){
+      this.setState({transferTab:'terceros', selDest:juan, transferMonto:'50000', transferMsg:'Regalo', hlTransfer:false, gf:null, guide:null, secOpen:false, pasteOpen:false});
+      setTimeout(()=>{ this.closePia(); this.go('transfer-auth'); this.startAuthTimer(); setTimeout(()=>this.toast('Todo listo. Cuando quieras, autoriza con PassCoopeuch. 👍'),750); }, 760);
+      return;
+    }
+    this.setState({transferTab:'terceros', selDest:null, transferMonto:'', transferMsg:'', hlTransfer:(mode!=='tour'), gf:{flow:'transfer',mode,i:0}, spot:null, guide:null, secOpen:false, pasteOpen:false});
+    setTimeout(()=>{ this.closePia(); this.go('home','inicio'); setTimeout(()=>this.measureSpot(),450); }, 760);
   }
   gfCur(){ const g=this.state.gf; if(!g) return null; return this.gfSteps(g.flow)[g.i]||null; }
   gfAdvance(){ const g=this.state.gf; if(!g) return; const steps=this.gfSteps(g.flow); const ni=g.i+1; if(ni>=steps.length){ this.endGuided(); return; } const nx=steps[ni]; this.setState({gf:{...g,i:ni}, spot:null, whyOpen:false}); if(nx.screen!==this.state.screen) this.go(nx.screen, nx.tab); setTimeout(()=>this.measureSpot(),340); }
   endGuided(){ this.setState({gf:null, spot:null, whyOpen:false, hlTransfer:false}); }
   measureSpot(){ const g=this.state.gf; if(!g||g.mode!=='tour'){ this.setState({spot:null}); return; } const step=this.gfCur(); if(!step) return; const el0=document.getElementById(step.target); if(el0&&el0.scrollIntoView){ try{ el0.scrollIntoView({block:'center',behavior:'instant'}); }catch(e){ try{ el0.scrollIntoView(); }catch(e2){} } } setTimeout(()=>{ const el=document.getElementById(step.target), screen=document.getElementById('screen'); if(!el||!screen) return; const er=el.getBoundingClientRect(), sr=screen.getBoundingClientRect(); const sc=(sr.width/(screen.offsetWidth||380))||1, pad=7; this.setState({spot:{x:(er.left-sr.left)/sc-pad, y:(er.top-sr.top)/sc-pad, w:er.width/sc+pad*2, h:er.height/sc+pad*2, tip:step.tip, side:step.side}}); }, 130); }
-  toTransferir(){ this.setState({transferDone:false, transferMsg:''}); const g=this.state.gf; if(!(g&&g.mode==='auto')) this.setState({transferMonto:''}); this.go('transferir'); if(g){ const cur=this.gfSteps(g.flow)[g.i]; if(cur&&cur.key==='home'){ this.gfAdvance(); } else { setTimeout(()=>this.measureSpot(),360); } } }
-  onTransferMonto(e){ const v=e.target.value.replace(/\D/g,'').slice(0,7); this.setState({transferMonto:v}); }
+  toTransferir(){ this.setState({transferTab:'terceros', destQuery:'', secOpen:false, pasteOpen:false}); this.go('transferir'); const g=this.state.gf; if(g){ const cur=this.gfSteps(g.flow)[g.i]; if(cur&&cur.key==='home'){ this.gfAdvance(); } else { setTimeout(()=>this.measureSpot(),360); } } }
+  onTransferMonto(e){ const v=e.target.value.replace(/\D/g,'').slice(0,9); this.setState({transferMonto:v}); }
+  // ---------- transferencias: flujo real ----------
+  setTab(t){ this.setState({transferTab:t, destQuery:''}); }
+  initials(n){ const p=(n||'').trim().split(/\s+/); return (((p[0]||'')[0]||'')+((p[1]||'')[0]||'')).toUpperCase(); }
+  bankAliases(b){ return b==='Banco De Chile' ? 'Banco De Chile / Edwards / Citi / Credichile' : b; }
+  addValid(){ const s=this.state; return !!(s.addRut.trim()&&s.addNombre.trim()&&s.addInst&&s.addTipo&&s.addCuenta.trim()); }
+  openAddDest(){ this.setState({addRut:'', addNombre:'', addEmail:'', addInst:'', addTipo:'', addCuenta:'', addGuardar:true}); this.go('transfer-add'); setTimeout(()=>this.setState({pasteOpen:true}), 440); }
+  pasteData(){ this.setState({pasteOpen:false, addRut:'18.542.113-6', addNombre:'Diego Rivera', addEmail:'diego.rivera@gmail.com', addInst:'Banco De Chile', addTipo:'Cuenta Corriente', addCuenta:'01234567800'}); }
+  addContinuar(){ if(!this.addValid()){ this.toast('Completa los datos del destinatario'); return; } const d={id:'d'+Date.now(), nombre:this.state.addNombre, rut:this.state.addRut, banco:this.state.addInst, banks:this.bankAliases(this.state.addInst), tipo:this.state.addTipo, cuenta:this.state.addCuenta, ini:this.initials(this.state.addNombre)}; const list=this.state.addGuardar?[d,...this.state.destinatarios]:this.state.destinatarios; this.setState({destinatarios:list, selDest:d, transferTab:'terceros', transferMonto:'', transferMsg:''}); this.go('transferir'); setTimeout(()=>this.setState({secOpen:true}), 400); }
+  selectDest(d){ this.setState({selDest:d, transferMonto:'', transferMsg:''}); const g=this.state.gf; const cur=g&&g.flow==='transfer'?this.gfSteps('transfer')[g.i]:null; if(cur&&cur.key==='dest'){ this.go('transfer-monto'); this.gfAdvance(); } else { this.setState({secOpen:true}); } }
+  cambiarDest(){ this.setState({selDest:null, secOpen:false}); this.go('transferir'); }
+  secContinuar(){ this.setState({secOpen:false}); this.go('transfer-monto'); }
+  terContinuar(){ const v=parseInt(this.state.transferMonto||'0',10)||0; if(v<1500){ this.toast('El monto mínimo es de $1.500'); return; } this.go('transfer-auth'); this.startAuthTimer(); const g=this.state.gf; const cur=g&&g.flow==='transfer'?this.gfSteps('transfer')[g.i]:null; if(cur&&cur.key==='continuar') this.gfAdvance(); }
+  startAuthTimer(){ this.setState({authSecs:117}); clearInterval(this._authT); this._authT=setInterval(()=>{ const s=(this.state.authSecs||0)-1; if(s<=0){ clearInterval(this._authT); this.setState({authSecs:0}); } else { this.setState({authSecs:s}); } }, 1000); }
+  authTransfer(){ clearInterval(this._authT); this.finishTransfer(); }
+  prodContinuar(){ this.setState({transferMonto:'', transferMsg:''}); this.go('transfer-prod-monto'); const g=this.state.gf; const cur=g&&g.flow==='transfer'?this.gfSteps('transfer')[g.i]:null; if(cur&&cur.key==='prodcont') this.gfAdvance(); }
+  prodMontoContinuar(){ const v=parseInt(this.state.transferMonto||'0',10)||0; if(v<=0){ this.toast('Ingresa un monto a transferir'); return; } this.go('transfer-prod-confirm'); const g=this.state.gf; const cur=g&&g.flow==='transfer'?this.gfSteps('transfer')[g.i]:null; if(cur&&cur.key==='prodmonto') this.gfAdvance(); }
+  prodConfirm(){ this.setState({transferTo:'Cuenta Ahorro · N° 202194782'}); this.finishTransfer(); }
+  finishTransfer(){ if(this.state.transferTab==='terceros'&&this.state.selDest) this.setState({transferTo:this.state.selDest.nombre}); this.endGuided(); this.go('transfer-done'); }
+  backToHub(){ clearInterval(this._authT); this.setState({secOpen:false, pasteOpen:false}); this.go('transferir'); }
   doTransfer(){ const v=parseInt(this.state.transferMonto||'0',10)||0; if(v<=0){ this.toast('Ingresa un monto a transferir'); return; } this.setState({transferDone:true, hlTransfer:false}); this.endGuided(); }
   async flow_aporte(){ await this.say('¡Perfecto! Puedo ayudarte a aumentar tu cuota de participación. Revisé tu información y esta es mi recomendación para ti:',{time:true}); await this.pushMsg({cardAporte:true}); }
   async execAporte(){ await this.userMsg('Sí, confirmo el aumento'); await this.say('¡Listo! 👍 Registré la confirmación que hiciste. Aquí queda tu comprobante:'); await this.type(900); this.setState({cuotaPart:100, aporteDone:true}); await this.pushMsg({cardSuccess:true}); await this.say('¿Te acompaño en algo más? 😊',{time:true}); await this.mainChips(); }
@@ -1314,7 +1569,7 @@ class Component extends DCLogic {
 
     const lia=(label,icon,on)=>({label,icon:this.ic(icon),on});
     return {
-      is:{ login:st.screen==='login', faceid:st.screen==='faceid', faceDone:st.screen==='faceDone', home:st.screen==='home', creditos:st.screen==='creditos', creditoSim:st.screen==='credito-sim', creditoResult:st.screen==='credito-result', creditoInfo:st.screen==='credito-info', creditoComp:st.screen==='credito-comprobante', hipotecario:st.screen==='hipotecario', condiciones:st.screen==='condiciones', ahorros:st.screen==='ahorros', cuentaAhorro:st.screen==='cuenta-ahorro', inversiones:st.screen==='inversiones', tarjetas:st.screen==='tarjetas', actualizacion:st.screen==='actualizacion', movimientos:st.screen==='movimientos', transferir:st.screen==='transferir', pagar:st.screen==='pagar', cuotaPart:st.screen==='cuota-participacion' },
+      is:{ login:st.screen==='login', faceid:st.screen==='faceid', faceDone:st.screen==='faceDone', home:st.screen==='home', creditos:st.screen==='creditos', creditoSim:st.screen==='credito-sim', creditoResult:st.screen==='credito-result', creditoInfo:st.screen==='credito-info', creditoComp:st.screen==='credito-comprobante', hipotecario:st.screen==='hipotecario', condiciones:st.screen==='condiciones', ahorros:st.screen==='ahorros', cuentaAhorro:st.screen==='cuenta-ahorro', inversiones:st.screen==='inversiones', tarjetas:st.screen==='tarjetas', actualizacion:st.screen==='actualizacion', movimientos:st.screen==='movimientos', transferir:st.screen==='transferir', transferAdd:st.screen==='transfer-add', transferMonto:st.screen==='transfer-monto', transferAuth:st.screen==='transfer-auth', transferProdMonto:st.screen==='transfer-prod-monto', transferProdConfirm:st.screen==='transfer-prod-confirm', transferDoneScreen:st.screen==='transfer-done', pagar:st.screen==='pagar', cuotaPart:st.screen==='cuota-participacion' },
       // login
       clave:st.clave, claveType:st.showClave?'text':'password',
       onClave:(e)=>this.setState({clave:e.target.value}),
@@ -1411,14 +1666,56 @@ class Component extends DCLogic {
       movTodos:()=>this.setState({movFilter:'todos'}), movAbonos:()=>this.setState({movFilter:'abonos'}), movCargos:()=>this.setState({movFilter:'cargos'}),
       movStatIng:this.peso(mst.ing), movStatGas:this.peso(mst.gas), movStatBal:(mst.bal>=0?'+':'-')+this.peso(Math.abs(mst.bal)), movStatBig:mst.bigT, movStatBigA:this.peso(mst.bigA), openPiaMovAnalisis:()=>this.openPia('movanalisis'),
       movsView: this.movs().filter(m=> st.movFilter==='todos'?true:(st.movFilter==='abonos'?m.in:!m.in)).map(m=>({ t:m.t, d:m.d, amt:(m.in?'+':'-')+'$'+this.fmt(Math.abs(m.a)), fg:m.in?'#34A853':'#E04150', bg:m.in?'#E5F5E9':'#FDEBEC', icon: React.createElement('svg',{width:18,height:18,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:2.2,strokeLinecap:'round',strokeLinejoin:'round'}, m.in?React.createElement('path',{d:'M12 19V5M5 12l7-7 7 7'}):React.createElement('path',{d:'M12 5v14M19 12l-7 7-7-7'})) })),
-      transferDone:st.transferDone, transferForm:!st.transferDone, transferTo:st.transferTo,
+      // ---- transferencias (flujo real) ----
+      transferTo:st.transferTo,
       transferMontoView: st.transferMonto?('$'+this.fmt(st.transferMonto)):'',
       transferMontoText:this.peso(parseInt(st.transferMonto||'0',10)||0),
       onTransferMonto:(e)=>this.onTransferMonto(e),
-      transferMsg:st.transferMsg, onTransferMsg:(e)=>this.setState({transferMsg:e.target.value}),
-      transferBtnBg: (parseInt(st.transferMonto||'0',10)>0)?'#E81E2C':'#C9CACE',
+      transferMsg:st.transferMsg,
+      onTransferMsgLim:(e)=>this.setState({transferMsg:e.target.value.slice(0,70)}),
+      msgCount:(st.transferMsg||'').length,
       hlTransfer: st.hlTransfer?ring:'none',
       doTransfer:()=>this.doTransfer(),
+      tabTerceros: st.transferTab==='terceros', tabProductos: st.transferTab==='productos',
+      tabTerBg: st.transferTab==='terceros'?'#1B7FB8':'#DCEFF8', tabTerFg: st.transferTab==='terceros'?'#fff':'#1483C2',
+      tabProdBg: st.transferTab==='productos'?'#1B7FB8':'#DCEFF8', tabProdFg: st.transferTab==='productos'?'#fff':'#1483C2',
+      setTabTerceros:()=>this.setTab('terceros'), setTabProductos:()=>this.setTab('productos'),
+      destQuery:st.destQuery, onDestQuery:(e)=>this.setState({destQuery:e.target.value}),
+      destinatariosView: (()=>{ const q=(st.destQuery||'').toLowerCase(); const f=st.destinatarios.filter(d=>!q||d.nombre.toLowerCase().includes(q)||(d.rut||'').toLowerCase().includes(q)); return f.map((d,i)=>({ tid:i===0?'tgt-ter-dest':'', ini:d.ini, nombre:d.nombre, sub:d.banco+' · '+d.tipo, on:()=>this.selectDest(d) })); })(),
+      hasDest: (()=>{ const q=(st.destQuery||'').toLowerCase(); return st.destinatarios.some(d=>!q||d.nombre.toLowerCase().includes(q)||(d.rut||'').toLowerCase().includes(q)); })(),
+      noDest: (()=>{ const q=(st.destQuery||'').toLowerCase(); return !st.destinatarios.some(d=>!q||d.nombre.toLowerCase().includes(q)||(d.rut||'').toLowerCase().includes(q)); })(),
+      openAddDest:()=>this.openAddDest(), prodContinuar:()=>this.prodContinuar(),
+      backToHub:()=>this.backToHub(),
+      addRut:st.addRut, onAddRut:(e)=>this.setState({addRut:e.target.value}),
+      addNombre:st.addNombre, onAddNombre:(e)=>this.setState({addNombre:e.target.value}),
+      addEmail:st.addEmail, onAddEmail:(e)=>this.setState({addEmail:e.target.value}),
+      addCuenta:st.addCuenta, onAddCuenta:(e)=>this.setState({addCuenta:e.target.value.replace(/\D/g,'').slice(0,14)}),
+      addInstView: st.addInst||'Selecciona una opción', addInstColor: st.addInst?'#2b2b2b':'#9aa0a8',
+      addTipoView: st.addTipo||'Selecciona el tipo de cuenta', addTipoColor: st.addTipo?'#2b2b2b':'#9aa0a8',
+      openInstSheet:()=>this.setState({instSheet:true}), openTipoSheet:()=>this.setState({tipoSheet:true}),
+      addGuardar:st.addGuardar, toggleAddGuardar:()=>this.setState({addGuardar:!st.addGuardar}),
+      addGuardarBd: st.addGuardar?'#1483C2':'#C2C6CC', addGuardarBg: st.addGuardar?'#1483C2':'#fff',
+      addGuardarCheck: st.addGuardar?React.createElement('svg',{width:15,height:15,viewBox:'0 0 24 24',fill:'none',stroke:'#fff',strokeWidth:3,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M5 13l4 4L19 7'})):'',
+      addContBg: this.addValid()?'#E81E2C':'#C9CACE', addContinuar:()=>this.addContinuar(),
+      pasteOpen:st.pasteOpen, closePaste:()=>this.setState({pasteOpen:false}), pasteData:()=>this.pasteData(),
+      pasteRows:[{k:'Nombre:',v:'Diego Rivera'},{k:'RUT:',v:'18.542.113-6'},{k:'Email:',v:'diego.rivera@gmail.com'},{k:'Institución:',v:'Banco De Chile'},{k:'Tipo de cuenta:',v:'Cuenta Corriente'},{k:'N° de cuenta:',v:'01234567800'}],
+      secOpen:st.secOpen, closeSec:()=>this.setState({secOpen:false}), secContinuar:()=>this.secContinuar(),
+      instSheet:st.instSheet, closeInstSheet:()=>this.setState({instSheet:false}),
+      instOptions:['Banco De Chile','BancoEstado','Santander','BCI','Scotiabank','Itaú','Banco Falabella','Coopeuch'].map(b=>({label:b, on:()=>this.setState({addInst:b, instSheet:false})})),
+      tipoSheet:st.tipoSheet, closeTipoSheet:()=>this.setState({tipoSheet:false}),
+      tipoOptions:['Cuenta Corriente','Cuenta Vista','Cuenta de Ahorro','Chequera Electrónica'].map(t=>({label:t, on:()=>this.setState({addTipo:t, tipoSheet:false})})),
+      terDestName: st.selDest?st.selDest.nombre:'', terDestSub: st.selDest?(st.selDest.tipo+' N° '+st.selDest.cuenta):'', terDestBanks: st.selDest?st.selDest.banks:'',
+      cambiarDest:()=>this.cambiarDest(),
+      terMontoBd: (st.transferMonto!==''&&(parseInt(st.transferMonto||'0',10)||0)<1500)?'#E04150':'#CFD2D7',
+      terMontoErrShow: (st.transferMonto!==''&&(parseInt(st.transferMonto||'0',10)||0)<1500),
+      terMontoErr:'Monto mínimo es de $1.500',
+      terContBg: ((parseInt(st.transferMonto||'0',10)||0)>=1500)?'#E81E2C':'#C9CACE', terContinuar:()=>this.terContinuar(),
+      authMsgText: st.transferMsg||'—',
+      authTimerText: (()=>{ const s=st.authSecs||0; return ('0'+Math.floor(s/60)).slice(-2)+':'+('0'+(s%60)).slice(-2); })(),
+      authTransfer:()=>this.authTransfer(),
+      coachOnAuth: !!(gfo&&gfo.flow==='transfer'&&gfc&&gfc.key==='auth'),
+      prodMontoBg: ((parseInt(st.transferMonto||'0',10)||0)>0)?'#E81E2C':'#C9CACE', prodMontoContinuar:()=>this.prodMontoContinuar(),
+      prodConfirm:()=>this.prodConfirm(), backToProdMonto:()=>this.go('transfer-prod-monto'),
       servicios:[
         {t:'Luz · CGE', due:'05 Jul', amt:'$31.200', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.3 1 2.5h6c0-1.2.2-1.7 1-2.5A6 6 0 0 0 12 3z'})), tid:'tgt-pay-first', on:()=>{ this.endGuided(); this.toast('Pago de Luz · CGE realizado ✓'); }},
         {t:'Agua · Aguas Andinas', due:'08 Jul', amt:'$18.400', icon:React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:1.7,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M12 3c3 4 6 7 6 10.5A6 6 0 0 1 6 13.5C6 10 9 7 12 3z'})), tid:'', on:()=>{ this.endGuided(); this.toast('Pago de Agua realizado ✓'); }},
